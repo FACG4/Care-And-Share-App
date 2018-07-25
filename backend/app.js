@@ -7,6 +7,8 @@ const compression = require('compression');
 const app = express();
 const path = require('path');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 
 app.set('port', process.env.PORT || 4001);
