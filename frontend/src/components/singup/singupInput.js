@@ -1,21 +1,14 @@
 import React from 'react';
-
 import './style.css';
 
-const Input = (props) =>{
-
-  
-  return (
-    <div className="row">
-        
-         <i className={props.icon} ></i><input type={props.type} placeholder={props.placeholder} name={props.name}/>
-  
-    </div>
-  );
-}
+const Input = ({
+  icon, type, placeholder, name,
+}) => (
+  <div className="row">
+    <i className={icon} />
+    <input type={type} placeholder={placeholder} name={name} />
+  </div>
+);
 
 
-
-
-
-export default Input ;
+export default Input;
