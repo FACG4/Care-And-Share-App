@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Singup from './singup/singup'
 class App extends Component {
   state = {
     test: []
@@ -9,10 +9,10 @@ class App extends Component {
 const that = this;
     var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-  console.log("this",that);
+  // console.log("this",that);
     if (xhr.readyState === 4 && xhr.status === 200) {
   const test = JSON.parse(xhr.responseText);
-  console.log("res",test);
+  // console.log("res",test);
   that.setState({
     test
   })
@@ -26,12 +26,8 @@ xhr.send();
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Welcome to React</h1>
-        {console.log(this.state.test)}
-          {this.state.test.map((t)=> <p>{t.a}</p>
-          )}
-        </header>
+      
+        <Singup />
       </div>
     );
   }
