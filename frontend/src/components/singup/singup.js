@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Input from './singupInput';
 import './style.css';
 
@@ -13,8 +14,12 @@ class Singup extends Component {
       ConfirmPass: e.target.ConfirmPass.value,
     };
 
-    if (signUpValues.fullName.trim() && signUpValues.userName.trim() && signUpValues.email.trim() && signUpValues.password.trim() && signUpValues.ConfirmPass.trim()) {
-      console.log('hiiii');
+    if (signUpValues.fullName.trim()
+        && signUpValues.userName.trim()
+        && signUpValues.email.trim()
+        && signUpValues.password.trim()
+        && signUpValues.ConfirmPass.trim()) {
+     
     // make fetch to send data
     }
   }
