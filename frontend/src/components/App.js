@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 
 
-
 class App extends Component {
-  state = {
-    test: []
-  }
-
-  componentDidMount(){
-  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Welcome to React</h1>
+          <h1>
+Welcome to React
+          </h1>
         </header>
       </div>
     );

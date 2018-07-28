@@ -8,7 +8,7 @@ state = {
     response: []
   }
 
- HandelLogin = (e) => {
+ handelLogin = (e) => {
   e.preventDefault();
   const inputsValues = {
     userName:e.target.userName.value,
@@ -22,12 +22,10 @@ state = {
       method: 'POST',
       url: '/login',
       data: inputsValues,
-
     }
 
 
 fetch(handleFetch, (response) => {
-
 response = JSON.parse(response);
 this.setState(() =>   (
   {response: Object.assign({}, response),
@@ -50,8 +48,7 @@ this.setState(() =>   (
 render(){
   return(
     <div className="login-container">
-
-    <form className="login-form" method="POST" onSubmit={this.HandelLogin} >
+    <form className="login-form" method="POST" onSubmit={this.handelLogin} >
     <div className="login-input-container">
     <div className="login-input-label">
 <div className="ico">true</div><input className="login-input-field" name="userName" type="text" placeholder="Username" ></input>
@@ -65,7 +62,6 @@ render(){
     </div>
     </form>
     <div className="error-msg">
-{console.log("this.state.response", this.state.response)}
     {this.state.error && <p>Error MSG: {this.state.error}</p>}
     </div>
 </div>
