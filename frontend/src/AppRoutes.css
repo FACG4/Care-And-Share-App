@@ -1,0 +1,38 @@
+.AppRoutes {
+  text-align: center;
+}
+
+.AppRoutes-logo {
+  animation: AppRoutes-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.AppRoutes-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.AppRoutes-title {
+  font-size: 1.5em;
+}
+
+.AppRoutes-intro {
+  font-size: large;
+}
+
+#root {
+  font-family: arial;
+  margin: 0 auto;
+  max-width: 375px;
+  min-height: 600px;
+    background-color:#EEEEEE;
+
+    padding-bottom: 0px;
+}
+
+@keyframes AppRoutes-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
