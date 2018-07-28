@@ -10,6 +10,12 @@
   position: absolute;
   top: 30px;
   z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.hidden {
+  transform: translate(50%, -50%) scale(0);
+  transition: all 0.5s ease;
 }
 
 .notifications .wrapper {

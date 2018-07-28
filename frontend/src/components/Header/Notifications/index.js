@@ -30,10 +30,12 @@ class Notifications extends Component {
         <a onClick={this.toggleNotification} className="notification">
           {bell}
         </a>
-        {this.state.toggle? 
+        {this.state.toggle?
           <div className="notifications">
             {notifications}
-          </div>: ''
+          </div>: <div className="notifications hidden">
+            {notifications}
+          </div>
         }
       </React.Fragment>
     );
