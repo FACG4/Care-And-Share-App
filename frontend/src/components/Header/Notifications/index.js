@@ -17,14 +17,15 @@ class Notifications extends Component {
   }
 
   render () {
-    const notifications = this.props.connectReq.length? this.props.connectReq.map(element => {
+    const { connectReq } = this.props;
+    const notifications = connectReq.length? connectReq.map(element => {
       return <Notification name={element.name} key={element.id} />
     }):<p>You have no notifications</p>;
-    
+    const bell = (connectReq.length && !this.state.toggle)?<div><span className="num">{connectReq.length}</span><FontAwesomeIcon name="bell-o" /></div>: <FontAwesomeIcon name="bell-o" />;
     return(
       <React.Fragment>
         <a onClick={this.toggleNotification} className="notification">
-          <FontAwesomeIcon name="bell-o" />
+          {bell}
         </a>
         {this.state.toggle? 
           <div className="notifications">

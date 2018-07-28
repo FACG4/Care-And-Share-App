@@ -48,3 +48,17 @@
 .notifications .wrapper button:nth-child(2) {
   background-color: #848484;
 }
+
+.notification .num {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #FC2E2E;
+  color: #fff;
+  text-align: center;
+  font-size: 19px;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
