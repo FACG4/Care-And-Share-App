@@ -4,14 +4,12 @@ import logo from './careandshare.png';
 import ('../style.css');
 
 class Title extends Component {
-  state = {
-
-  }
-
   render(){
+    const { title } = this.props;
+
     return(
       <a href="#">
-        <img className="App-header-title" src={logo} alt="logo"/>
+        {title?<h1>{title}</h1>:<img className="App-header-title" src={logo} alt="logo"/>}
       </a>
     )
   }

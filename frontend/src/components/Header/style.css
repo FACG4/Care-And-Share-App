@@ -28,6 +28,12 @@
   font-size: 24px;
   margin: 5px;
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.App-header h1 {
+  font-size: 30px;
 }
 
 .App-header .menu {

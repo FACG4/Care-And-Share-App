@@ -13,7 +13,7 @@ class Header extends Component {
     return(
       <header className="App-header">
         <Notifications connectReq={this.props.connectReq}/>
-        <HeaderTitle />
+        <HeaderTitle title={this.props.title} />
         
         <a href="#" className="menu">
           <FontAwesomeIcon name="bars" />
