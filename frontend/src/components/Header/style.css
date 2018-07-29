@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.App {
+#root {
   width: 375px;
   height: 667px;
   max-width: 375px;

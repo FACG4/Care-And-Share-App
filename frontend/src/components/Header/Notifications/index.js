@@ -3,40 +3,38 @@ import FontAwesomeIcon from 'react-fontawesome'
 
 import Notification from './Notification/Notification';
 
-import('./style.css');
+import './style.css';
 
 class Notifications extends Component {
   state = {
-    toggle: false,
+    show: false,
   }
 
   toggleNotification = (e) => {
     this.setState(prevState => ({
-      toggle: !prevState.toggle
+      show: !prevState.show
     }));
   }
 
   render () {
     const { connectReq } = this.props;
-
+    const { show } = this.state;
+    
     const notifications = connectReq.length? connectReq.map(element => {
       return <Notification name={element.name} key={element.id} />
     }):<p>You have no notifications</p>;
 
-    const bell = (connectReq.length && !this.state.toggle)?<div><span className="num">{connectReq.length}</span><FontAwesomeIcon name="bell-o" /></div>: <FontAwesomeIcon name="bell-o" />;
-    
     return(
       <React.Fragment>
         <a onClick={this.toggleNotification} className="notification">
-          {bell}
-        </a>
-        {this.state.toggle?
-          <div className="notifications">
-            {notifications}
-          </div>: <div className="notifications hidden">
-            {notifications}
+          <div>
+            {(connectReq.length && !show)?<span className="num">{connectReq.length}</span>:''}
+            <FontAwesomeIcon name="bell-o" />
           </div>
-        }
+        </a>
+        <div className={`notifications ${show?'': "hidden"}`}>
+          {notifications}
+        </div>
       </React.Fragment>
     );
   }

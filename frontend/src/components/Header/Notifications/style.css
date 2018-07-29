@@ -1,3 +1,17 @@
+.notification .num {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #FC2E2E;
+  color: #fff;
+  text-align: center;
+  font-size: 19px;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
 .notifications {
   width: 320px;
   min-height: 100px;
@@ -16,55 +30,4 @@
 .hidden {
   transform: translate(50%, -50%) scale(0);
   transition: all 0.5s ease;
-}
-
-.notifications .wrapper {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 300px;
-  height: 110px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 7px;
-}
-
-.notifications .wrapper div {
-  display: flex;
-  width: 80%;
-  justify-content: space-evenly;
-}
-.notifications .wrapper p {
-  width: 80%;
-  text-align: center;
-}
-.notifications .wrapper button {
-  cursor: pointer;
-  width: 90px;
-  height: 35px;
-  text-align: center;
-  border-radius: 18px;
-  background-color: #48A1AF;
-  border: none;
-}
-.notifications .wrapper button:hover {
-  box-shadow: 0 2px 5px -2px #000;
-}
-
-.notifications .wrapper button:nth-child(2) {
-  background-color: #848484;
-}
-
-.notification .num {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #FC2E2E;
-  color: #fff;
-  text-align: center;
-  font-size: 19px;
-  position: absolute;
-  right: 10px;
-  top: 8px;
 }
