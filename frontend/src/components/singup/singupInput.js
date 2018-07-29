@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+/* eslint-disable */
 
 const Input = ({
   icon, type, placeholder, name,

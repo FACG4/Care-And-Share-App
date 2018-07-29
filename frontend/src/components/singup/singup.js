@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import Input from './singupInput';
 import './style.css';
+/* eslint-disable */
 
 class Singup extends Component {
-  handleAddOption(e) {
+  handleAddInfo(e) {
     e.preventDefault();
     const signUpValues = {
       fullName: e.target.fullName.value,
@@ -33,7 +34,7 @@ class Singup extends Component {
 SignUp
         </h2>
 
-        <form onSubmit={this.handleAddOption}>
+        <form onSubmit={this.handleAddInfo}>
 
           <Input type="text" placeholder="Full Name" icon="fas fa-user-circle color--icon" name="fullName" />
           <Input type="text" placeholder="User Name" icon="fas fa-user-circle color--icon" name="userName" />
