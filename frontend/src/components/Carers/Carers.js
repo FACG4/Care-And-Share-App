@@ -55,7 +55,7 @@ CarerCardBodyHide = () =>{
   render() {
     const {cardShow:show, response, searchResponse} = this.state;
     return (
-      <div>
+      <div className="container">
 
         <Search handleSearchResponse={this.handleSearchResponse}  response={response} />
         {this.state.searchResponse && this.state.searchResponse.length ?
@@ -68,6 +68,5 @@ CarerCardBodyHide = () =>{
     );
   }
 }
-
 
 export default Carers;

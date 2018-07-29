@@ -1,33 +1,43 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import React from 'react';
+import './style.css';
 
-const Carer = props => (
-  <div>
+const Carer = (props) => {
+  const { response } = props;
+  return (
+    <div>
 
-    {props.response && props.response.map(carer => (
-      <div className="carer-card" key={carer.id} onClick={() => props.CarerCardBodyShow(carer.id)}>
-        <h5>
+      {response && response.map(carer => (
+        <div className="carer-card" key={carer.id} onClick={() => props.CarerCardBodyShow(carer.id)}>
+          <div className="carer-card-info">
+            <h5>
 Carer from:
-          {' '}
-          {carer.location}
-        </h5>
-        <h5>
+              {' '}
+              {carer.location}
+            </h5>
+            <h5>
 Age:
-          {' '}
-          {carer.age}
-        </h5>
-        <h5>
+              {' '}
+              {carer.age}
+            </h5>
+            <p>
+              <span className="span-bold">
 Cared for sitution:
-          {' '}
-          {carer.interests}
-        </h5>
-        <button type="submit" key={carer.id}>
+              </span>
+              {' '}
+              <span className="span-normal">
+                {carer.sitution}
+              </span>
+            </p>
+          </div>
+          <button className="more-button" type="submit" key={carer.id}>
           more
-        </button>
-      </div>
-    ))}
-  </div>
-);
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default Carer;

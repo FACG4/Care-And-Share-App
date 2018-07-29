@@ -27,9 +27,10 @@ state = {
 
 fetch(handleFetch, (response) => {
 response = JSON.parse(response);
+console.log(response);
 this.setState(() =>   (
   {response: Object.assign({}, response),
-  error: undefined
+  error: response.msg
               }
             )
           )
@@ -47,23 +48,21 @@ this.setState(() =>   (
 
 render(){
   return(
-    <div className="login-container">
+    <div className="container">
+    <div className="login-header">
+    <h3 className="login-header--title"> Sign In </h3>
+    <h3 className="login-header--title"> SignUp </h3>
+    </div>
     <form className="login-form" method="POST" onSubmit={this.handelLogin} >
-    <div className="login-input-container">
-    <div className="login-input-label">
-<div className="ico">true</div><input className="login-input-field" name="userName" type="text" placeholder="Username" ></input>
+    <div className="login-input">
+    <input className="login-input-field" name="userName" type="text" placeholder="Username" />
+    <input className="login-input-field" name="password" type="password" placeholder="Password" />
     </div>
-    <div className="login-input-label">
-<div className="ico">true</div><input className="login-input-field" name="password" type="password" placeholder="Password" ></input>
-    </div>
-    </div>
-    <div className="login-button-parent">
-<button className="login-button">Sign In</button>
-    </div>
+    <button className="big-button">Sign In</button>
     </form>
-    <div className="error-msg">
-    {this.state.error && <p>Error MSG: {this.state.error}</p>}
-    </div>
+  {this.state.error &&  <div className="login-error-msg">
+    { <h3>{this.state.error}</h3>}
+    </div>}
 </div>
   )
 }
