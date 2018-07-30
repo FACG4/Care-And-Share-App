@@ -28,6 +28,54 @@ the App database structure for represent the App tables and the relations betwee
 #### Prototype: :link:
 There is the link of the App prototype on figma [Here ](https://www.figma.com/proto/GDGWmaT7HSHTJBY1b7tmfsL5/My-Book?node-id=0%3A1&scaling=scale-down)
 
+## Folder Structure
+
+```
+Care-And-Share-App/
+  backend/
+    controllers/
+      index.js
+      test.js
+    database/
+      build.sql
+      db_build.js
+      db_connection.js
+    .gitignore
+    app.js
+    index.js
+    package-lock.json
+    package.json
+  frontend/
+    public/
+      index.html
+      favicon.ico
+    src/
+      Components/
+        Carers/
+        Connections/
+        Discussions/
+        Filter/
+        Header/
+        MyCarePlan/
+        MyDiary/
+        Navbar/
+        Profile/
+        Search/
+        Error/
+      AppRoutes.CSS
+      AppRoutes.js
+      index.js
+    README.md
+    node_modules/
+    package.json
+    .gitignore
+  README.md
+  node_modules/
+  package.json
+  .gitignore
+
+```
+
 # Technology Stack:
 
 - Express.js
