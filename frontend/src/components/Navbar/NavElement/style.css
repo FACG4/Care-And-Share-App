@@ -5,6 +5,7 @@
 }
 
 button{
+  cursor: pointer;
   width: 62px;
   height: 55px;
   border: none;
@@ -23,6 +24,5 @@ font-size: 10px;
 }
 
 .active button {
-
     background-color: #335e65;
 }

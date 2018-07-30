@@ -20,7 +20,7 @@ const AppRoutes = () => (
   <BrowserRouter>
           <div>
             <Switch>
-              <Route path="/carers" component={Carers} exact />
+              <Route path="/" component={Carers} exact />
               <Route path="/profile" component={Profile} />
               <Route path="/diaries" component={Diaries} />
               <Route path="/discussion" component={Discussion} />

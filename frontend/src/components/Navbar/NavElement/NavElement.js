@@ -7,34 +7,35 @@ import { NavLink } from 'react-router-dom';
  import './style.css';
 
 export default class NavElement extends React.Component {
-  constructor(props) {
-    super(props);
-
-}
 
   render() {
-
+    const handleActive = (match) => {
+      if(match && match.isExact){
+        return true;
+      } else {
+        return false;
+      }
+    }
     const {
-      onClick,
       className,
       children,
+      link,
+      txt,
+      url,
     } = this.props;
+
     return (
-      <NavLink to={this.props.link} activeClassName="active">
-      <button
-      className = {className}
-      type = "button">
-
-      <img src={this.props.url} alt="" />
-      <p>{this.props.txt}</p>
-      {children}
-
-      </button>
+      <NavLink to={link} isActive={handleActive} activeClassName="active">
+        <button className = {className} type = "button">
+          <img src={url} alt="" />
+          <p>{txt}</p>
+          {children}
+        </button>
       </NavLink>
-
     );
-    }
+  }
 }
+
 NavElement.propTypes = {
   url: PropTypes.string.isRequired,
   txt: PropTypes.string.isRequired,
