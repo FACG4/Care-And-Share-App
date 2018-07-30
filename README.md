@@ -31,48 +31,48 @@ There is the link of the App prototype on figma [Here ](https://www.figma.com/pr
 ## Folder Structure
 
 ```
-Care-And-Share-App/
-  backend/
-    controllers/
-      index.js
-      test.js
-    database/
-      build.sql
-      db_build.js
-      db_connection.js
-    .gitignore
-    app.js
-    index.js
-    package-lock.json
-    package.json
-  frontend/
-    public/
-      index.html
-      favicon.ico
-    src/
-      Components/
-        Carers/
-        Connections/
-        Discussions/
-        Filter/
-        Header/
-        MyCarePlan/
-        MyDiary/
-        Navbar/
-        Profile/
-        Search/
-        Error/
-      AppRoutes.CSS
-      AppRoutes.js
-      index.js
-    README.md
-    node_modules/
-    package.json
-    .gitignore
-  README.md
-  node_modules/
-  package.json
-  .gitignore
+- Care-And-Share-App/
+  -  backend/
+  |       - controllers/
+  |       |     -  index.js
+  |       |     -  test.js
+  |       - database/
+  |       |       - build.sql
+  |       |       - db_build.js
+  |       |       - db_connection.js
+  |       -.gitignore
+  |       -app.js
+  |       -index.js
+  |       -package-lock.json
+  |       -package.json
+  -  frontend/
+  |       - public/
+  |       |   - index.html
+  |       |   - favicon.ico
+  |       - src/
+  |       | - Components/
+  |       |  |      - Carers/
+  |       |  |      - Connections/
+  |       |  |      - Discussions/
+  |       |  |      - Filter/
+  |       |  |      - Header/
+  |       |  |      - MyCarePlan/
+  |       |  |      - MyDiary/
+  |       |  |      - Navbar/
+  |       |  |      - Profile/
+  |       |  |      - Search/
+  |       |  |      - Error/
+  |       |  - AppRoutes.CSS
+  |       |  - AppRoutes.js
+  |       |  - index.js
+  |       - README.md
+  |       - node_modules/
+  |       - package.json
+  |       - .gitignore
+  - README.md
+  - node_modules/
+  - package.json
+  - .gitignore
 
 ```
 
