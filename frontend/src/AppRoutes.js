@@ -2,7 +2,9 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import './AppRoutes.css';
+import './style/style.css';
 
+import Login from './components/Login/Login';
 import Carers from './components/Carers/Carers';
 import Profile from './components/Profile/Profile';
 import Diaries from './components/MyDiary/MyDiary';
@@ -21,6 +23,8 @@ const AppRoutes = () => (
           <div>
             <Switch>
               <Route path="/" component={Carers} exact />
+              <Route path="/login" component={Login} />
+              <Route path="/carers" component={Carers} />
               <Route path="/profile" component={Profile} />
               <Route path="/diaries" component={Diaries} />
               <Route path="/discussion" component={Discussion} />

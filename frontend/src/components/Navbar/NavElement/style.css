@@ -4,7 +4,7 @@
   height: 55px;
 }
 
-button{
+.navStyle button{
   cursor: pointer;
   width: 62px;
   height: 55px;
@@ -12,13 +12,13 @@ button{
   background-color: #48A1AF;
 }
 
-button img{
+.navStyle button img{
   margin-top: 4px;
   width: 60%;
   height: 51%;
 }
 
-button p{
+.navStyle button p{
   margin-top: 4px;
 font-size: 10px;
 }
