@@ -1,0 +1,15 @@
+.search-form{
+  display:block;
+  width: 100%;
+  margin-bottom: 2.3rem;
+}
+.search-input{
+  background: white;
+  border: none;
+  color: black;
+  font-size: 2rem;
+  padding: 1.9rem;
+  border-bottom: 0.5rem solid whitesmoke;
+width: -moz-available;
+  margin: 4.5rem 0 0 0;
+}
