@@ -1,23 +1,31 @@
-/* eslint-disable */
+/* eslint-disable react/jsx-filename-extension */
 import Modal from 'react-modal';
 import React from 'react';
 
 
-const OptionModal = props =>  (
+const OptionModal = ({ selectedOption, closeModel }) => (
   <Modal
-    isOpen={props.selectedOption}
+    isOpen={selectedOption}
     contentLabel="Slected Option"
-    onRequestClose={props.closeModel}
+    onRequestClose={closeModel}
     className="modal--style"
   >
-    <button className="btn--style" type="button">send Massage </button>
-    <button className="btn--style" type="button" >
-    profile 
-   </button>
-    <button className="btn--style" type="button">delete </button>
-   
+    <button className="btn--style" type="button">
+send Massage
 
-    <span onClick={props.closeModel}>close</span>
+    </button>
+    <button className="btn--style" type="button">
+    profile
+    </button>
+    <button className="btn--style" type="button">
+delete
+
+    </button>
+
+
+    <span onClick={closeModel}>
+close
+    </span>
   </Modal>
 );
 

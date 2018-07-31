@@ -1,56 +1,47 @@
-.login-container{
-  background-color:whitesmoke;
-  display: block;
-  top:0px;
-  padding: 5% 0%;
-  height: 70vh;
-
+.big-button{
+background: cadetblue;
+border: none;
+border-bottom: 0.6rem solid darkcyan;
+color: white;
+font-weight: bold;
+font-size: 2rem;
+margin-top: 4.8rem;
+padding: 2.4rem;
+width: 100%;
+cursor: pointer;
 }
-.login-input-container{
-  margin: 5%;
+.login-header{
+background: cadetblue;
+color: whitesmoke;
+padding: 1.2rem;
+display: flex;
+justify-content: space-between;
 }
-
+.login-header--title{
+  margin:0;
+  cursor: pointer;
+}
+.login-form{
+  background: darkgray;
+  margin-bottom: 3.6rem;
+}
+.login-input{
+  display:block;
+  width: 100%;
+}
 .login-input-field{
-  display: inline;
-  margin: auto;
-  width:70%;
-  height:30px;
-  -webkit-margin-after: 5%;
-  margin-block-end: 5%;
-}
-.login-input-label{
-  display: inline
-}
-.ico{
-  display: block;
-  width: 15%;
-  display: inline;
-  margin-right: 3px;
-  border-style:solid;
-  border-width: 0.1px;
-  max-height: 55px;
-  padding: 9.2px 5px;
-  border-color: lightgray;
-  border-radius: 5px;
-    
-}
-.login-button-parent{
-  display: block;
-  width:-moz-available;
-  left: 0px;
-  right: 0px;
-  height: 100px;
-
-}
-.login-button{
-  width: -moz-available;
-  height: 40px;
-  -webkit-margin-before: 5%;
-          margin-block-start: 5%;
-  height: 90px;
-  border-radius: 3px;
-  background-color: #48A1AF;
+  background: gray;
+  border: none;
   color: white;
-  font-size:larger;
-  font-weight: bold;
+  padding: 1.9rem;
+  border-bottom: 0.3rem solid darkgray;
+width: -moz-available;
+  margin: 4.5rem 4rem 0 4rem;
+}
+.login-error-msg{
+  color: darkcyan;
+  margin: 0;
+  padding: 2.3rem;
+  text-align: center;
+  background: darkgray;
 }

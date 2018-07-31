@@ -14,7 +14,7 @@ class Singup extends Component {
     };
 
     if (signUpValues.fullName.trim() && signUpValues.userName.trim() && signUpValues.email.trim() && signUpValues.password.trim() && signUpValues.ConfirmPass.trim()) {
-      console.log('hiiii');
+
     // make fetch to send data
     }
   }
