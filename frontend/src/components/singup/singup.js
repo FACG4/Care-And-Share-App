@@ -13,7 +13,11 @@ class Singup extends Component {
       ConfirmPass: e.target.ConfirmPass.value,
     };
 
-    if (signUpValues.fullName.trim() && signUpValues.userName.trim() && signUpValues.email.trim() && signUpValues.password.trim() && signUpValues.ConfirmPass.trim()) {
+    if (signUpValues.fullName.trim()
+     && signUpValues.userName.trim()
+     && signUpValues.email.trim()
+     && signUpValues.password.trim()
+     && signUpValues.ConfirmPass.trim()) {
 
     // make fetch to send data
     }
