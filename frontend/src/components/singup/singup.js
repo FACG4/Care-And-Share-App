@@ -27,7 +27,7 @@ class Singup extends Component {
      && signUpValues.email.trim()
      && signUpValues.password.trim()
      && signUpValues.ConfirmPass.trim()) {
-      const url = './signUp';
+      const url = './api/signUp';
 
       fetch(url, {
         method: 'POST',

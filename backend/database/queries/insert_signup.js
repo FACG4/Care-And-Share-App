@@ -6,16 +6,11 @@ const signupInsert = (fullName, userName, email, password, cb) => {
     values: [fullName, userName, email, password],
   };
   connection.query(sql, (err, res) => {
-
-    
     if (err) cb(err);
-    else {   
+    else {
       cb(null, res.rows);
     }
   });
 };
-//upload
 
 module.exports = signupInsert;
-
-
