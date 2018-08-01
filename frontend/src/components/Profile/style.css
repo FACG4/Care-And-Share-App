@@ -1,0 +1,63 @@
+.public-profile {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 335px;
+  min-height: 440px;
+  background-color: #F3F4F1;
+  margin: 20px auto;
+  position: relative;
+}
+
+.public-profile label {
+  margin-left: 28px;
+  font-size: 18px;
+  display: block;
+}
+
+.public-profile .caret-down {
+  position: absolute;
+  top: 63px;
+  right: 45px;
+  font-size: 19px;
+  color: #48a1af;
+}
+
+.public-profile select {
+  appearance: none;
+}
+
+.public-profile select,
+.public-profile textarea,
+.public-profile input {
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  color: rgba(0,0,0,0.65);  
+  display: block;
+  width: 275px;
+  height: 40px;
+  margin: 10px auto;
+  padding-left: 14px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.public-profile textarea {
+  min-height: 80px;
+}
+
+.public-profile .active {
+  background-color: rgba(255,255,255,0.8);
+  transition: all 0.2s ease;
+}
+
+.public-profile .button {
+  cursor: pointer;
+  width: 90px;
+  height: 35px;
+  text-align: center;
+  border-radius: 18px;
+  background-color: #48A1AF;
+  border: none;
+  margin: 0 auto;
+  display: block;
+}
