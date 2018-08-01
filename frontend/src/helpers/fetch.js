@@ -20,5 +20,4 @@ xhr.onreadystatechange = () => {
 
 }
 
-
 export default fetch;
