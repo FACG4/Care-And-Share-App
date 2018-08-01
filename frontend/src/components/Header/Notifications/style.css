@@ -6,7 +6,9 @@
   background-color: #FC2E2E;
   color: #fff;
   text-align: center;
-  font-size: 19px;
+  padding: auto;
+  line-height: 20px; /*to center it vertically*/
+  font-size: 14px; /*change it to fit two digits*/
   position: absolute;
   right: 10px;
   top: 8px;
