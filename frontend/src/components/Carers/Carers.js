@@ -1,10 +1,8 @@
-/* eslint-disable react/jsx-filename-extension */
-// eslint-disable-next-line
 import React, { Component } from 'react';
 import CarerCard from './CarerCard/CarerCard';
 import CarerCardBody from './CarerCardBody/CarerCardBody';
 import Search from '../Search/Search';
-import fetch from '../../helpers/fetch';
+
 
 class Carers extends Component {
 
@@ -12,24 +10,27 @@ state = {
     cardShow:false,
     carerCardId:0,
     response:undefined,
-    searchResponse: undefined
+    searchResponse: undefined,
+    notification:true
   }
-
   componentDidMount(){
-    const handleFetch = {
-      method: 'POST',
-      url: '/carers',
+fetch('/carers', {
+  method:'POST',
+  body: JSON.stringify(this.props.userId(this.props.token)),
+  headers: {'Content-Type': 'application/json'}
+})
+.then(res => res.json())
+.catch (error => console.log("error fetch", error))
+.then(response => {
+  this.setState((prevstate) =>   (
+    {
+      response: Object.assign([], response)
     }
-    fetch(handleFetch, (response) => {
-      response = JSON.parse(response);
-      this.setState((prevstate) =>   (
-        {
-          response: Object.assign([], response)
-        }
-      )
-    )
-  }
-);
+  )
+)
+})
+
+
   }
 
 handleSearchResponse = (response) => {
@@ -52,16 +53,20 @@ CarerCardBodyHide = () =>{
        cardShow:false
      })
   }
+  friendRequestNotification(){
+    this.setState({
+      notification:true
+    })
+  }
   render() {
     const {cardShow:show, response, searchResponse} = this.state;
     return (
       <div className="container">
-
         <Search handleSearchResponse={this.handleSearchResponse}  response={response} />
         {this.state.searchResponse && this.state.searchResponse.length ?
-          <CarerCard  response={searchResponse} CarerCardBodyShow={this.CarerCardBodyShow} cardName="Carer Card" />
+          <CarerCard  response={searchResponse} CarerCardBodyShow={this.CarerCardBodyShow} />
          :
-          <CarerCard  response={response} CarerCardBodyShow={this.CarerCardBodyShow} cardName="Carer Card" />
+          <CarerCard  response={response} CarerCardBodyShow={this.CarerCardBodyShow} userId={this.props.userId} token={this.props.token} />
         }
         <CarerCardBody response={response} id={this.state.carerCardId} CarerCardBodyHide={this.CarerCardBodyHide} isOpenValue={show} />
       </div>
