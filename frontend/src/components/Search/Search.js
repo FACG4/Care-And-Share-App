@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-filename-extension */
-// eslint-disable-next-line
+
 import React, { Component } from 'react';
 import './style.css';
 

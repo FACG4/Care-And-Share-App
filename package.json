@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "dbBuild": "node backend/database/db_build.js"
+  }
+}
