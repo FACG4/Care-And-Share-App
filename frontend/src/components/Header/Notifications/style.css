@@ -6,7 +6,9 @@
   background-color: #FC2E2E;
   color: #fff;
   text-align: center;
-  font-size: 19px;
+  padding: auto;
+  line-height: 20px;
+  font-size: 14px;
   position: absolute;
   right: 10px;
   top: 8px;
