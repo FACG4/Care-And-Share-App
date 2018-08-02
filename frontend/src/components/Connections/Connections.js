@@ -1,61 +1,94 @@
 
 
-/* eslint-disable */
-import React, { Component } from 'react';
 
+
+// /* eslint-disable */
+import React, { Component } from 'react';
 import Image from './Connection/image';
 import OptionModal from './Connection/imageModal';
 import './style.css';
 
 
 class Connection extends Component {
- 
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      FrindesInfo: {1:'eman',2:'ahmed',3:'ishak',4:'ahmed'},
-      selectedOption:undefined
-    }
-    this.handelOpenModel= this.handelOpenModel.bind(this);
+    this.state = {
+      selectedOption: undefined,
+      response: [],
+      fullName: [],
+      image: [],
+      userId: [],
+      modalId:0,
+    };
+    this.handelOpenModel = this.handelOpenModel.bind(this);
     this.handelCloseModel = this.handelCloseModel.bind(this);
+  }
 
-  
-  }
-handelOpenModel(){
-this.setState(()=>({
-  selectedOption:true
- 
-}))
-  }
-  handelCloseModel(){
-    this.setState(()=>({
-      selectedOption:false
-     
-    }))
-  }
- 
+  componentDidMount() {
+    const url = '/api/MyFriends';
+    fetch(url, {
+      method: 'POST',
+    }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then((response) => {
+        // console.log('hh', response);
 
- 
+        this.setState(() => (
+          {
+            response,
+            fullName: response.map(a => a.full_name),
+            image: response.map(b => b.image),
+            userId: response.map(c => c.id),
+          }
+        ));
+      });
+      
+
+  }
+
+  handelOpenModel(id) {
+    this.setState({
+      selectedOption: true,
+      modalId:id
+
+    });
+  }
+
+  handelCloseModel() {
+    this.setState(() => ({
+      selectedOption: false,
+
+    }));
+  }
+
+
+
+
   render() {
-   const {FrindesInfo,selectedOption} = this.state;
+
+    const {
+      response, selectedOption, fullName, image, userId,
+    } = this.state;
 
     return (
       <div className="flex-container">
+        {
 
+  Object.keys(response).map(key => (
+    <Image
+      key={key}
+      name={fullName[key]}
+      src={image[key]}
+      id={userId[key]}
+      openModel={this.handelOpenModel}
+    />
+    
+  ))}
+        <OptionModal selectedOption={selectedOption} closeModel={this.handelCloseModel} userId={this.state.modalId} alluser={this.state.userId} />
 
-  {
-  Object.keys(FrindesInfo).map((key)=><Image
-   key={key}
-   id={key} 
-  name={FrindesInfo[key]}
-  openModel={this.handelOpenModel}
-   />)}
-  <OptionModal selectedOption={selectedOption} closeModel={this.handelCloseModel}/>
       </div>
     );
   }
 }
 
 export default Connection;
-
-
