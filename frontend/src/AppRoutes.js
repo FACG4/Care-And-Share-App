@@ -7,6 +7,8 @@ import Login from './components/Login/Login';
 import Carers from './components/Carers/Carers';
 import handleAuthentication from './helpers/handleAuthentication';
 import Notification from './components/notification/Notification';
+import signUp from './components/singup/singup';
+import Connection from './components/Connections/Connections';
 import './style/style.css';
 
 const token = sessionStorage.getItem('token');
@@ -63,7 +65,8 @@ fetch('/api/notification', {
               render={props => (handleAuthentication(token).status ? <Redirect to="/" />
                 : <Login {...props} handleAuthentication={handleAuthentication} />)}
             />
-            <PrivateRoute path='/protected' />
+            <Route path="/signUp" component={signUp} />
+            <PrivateRoute path="/MyFriends" component={Connection} />
 
           </Switch>
         </BrowserRouter>
