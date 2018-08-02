@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import './AppRoutes.css';
-import './style/style.css';
+import './style/style.css'; 
 
 import Login from './components/Login/Login';
 import Header from './components/Header';

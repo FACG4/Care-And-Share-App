@@ -187,7 +187,7 @@
 }
 
 .section{
- overflow-y: scroll;
+ overflow-y: scroll; 
  height: 340px;
  margin-top: 20px;
  margin-left: 25px;

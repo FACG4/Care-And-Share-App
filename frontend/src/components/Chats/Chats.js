@@ -56,6 +56,7 @@ const Chat = ({ saveMsg }) => (
       </div>
     </div>
   </form>
+  
 );
 
 const Messages = ({ chat }) => (
