@@ -5,6 +5,8 @@ import './AppRoutes.css';
 import './style/style.css';
 
 import Login from './components/Login/Login';
+import Header from './components/Header';
+import Chats from './components/Chats/Chats';
 import Carers from './components/Carers/Carers';
 import Profile from './components/Profile/Profile';
 import Diaries from './components/MyDiary/MyDiary';
@@ -21,6 +23,7 @@ const AppRoutes = () => (
   <div className="AppRoutes">
   <BrowserRouter>
           <div>
+          <Header connectReq={['adsfa','sdfg']}/>
             <Switch>
               <Route path="/" component={Carers} exact />
               <Route path="/login" component={Login} />
@@ -30,6 +33,7 @@ const AppRoutes = () => (
               <Route path="/discussion" component={Discussion} />
               <Route path="/connection" component={Connection} />
               <Route path="/mybook" component={MyBook} />
+              <Route path="/chats" component={Chats} />
               <Route component={Error} />
             </Switch>
             <NavElements />

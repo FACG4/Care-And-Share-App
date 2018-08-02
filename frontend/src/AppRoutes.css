@@ -1,13 +1,16 @@
 .AppRoutes {
   text-align: center;
+    position: relative;
+    min-height: 667px;
+
 }
 
 #root {
   font-family: arial;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   max-width: 375px;
   min-height: 600px;
     background-color:#EEEEEE;
 
-    padding-bottom: 0px;
+    /* padding-bottom: 0px; */
 }

@@ -1,7 +1,10 @@
 .navStyle{
-  padding-top: 545px;
+  /* padding-top: 545px; */
+  position: absolute;
+  bottom: 0;
   width: 375px;
   height: 55px;
+
 }
 
 .navStyle button{
@@ -10,6 +13,7 @@
   height: 55px;
   border: none;
   background-color: #48A1AF;
+    padding: 5px;
 }
 
 .navStyle button img{
