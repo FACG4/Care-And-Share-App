@@ -13,11 +13,9 @@ import Diaries from './components/MyDiary/MyDiary';
 import Discussion from './components/Discussions/Discussions';
 import Connection from './components/Connections/Connections';
 import MyBook from './components/MyCarePlan/MyCarePlan';
-
+import signUp from './components/singup/singup';
 import Error from "./components/Error";
-
 import NavElements from './components/Navbar/NavElement'
-
 
 const AppRoutes = () => (
   <div className="AppRoutes">
@@ -34,6 +32,8 @@ const AppRoutes = () => (
               <Route path="/connection" component={Connection} />
               <Route path="/mybook" component={MyBook} />
               <Route path="/chats" component={Chats} />
+              <Route path="/signUp" component={signUp} />
+              <Route path="/MyFriends" component={Connection} />
               <Route component={Error} />
             </Switch>
             <NavElements />
