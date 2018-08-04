@@ -8,10 +8,12 @@ import './style.css';
 
 class Header extends Component {
 
+  // the title should come from the selected nav
+
   render(){
     return(
       <header className="App-header">
-        <Notifications connectReq={this.props.connectReq}/>
+        <Notifications />
         <HeaderTitle title={this.props.title} />
         
         <a className="menu">

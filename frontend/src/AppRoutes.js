@@ -1,10 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import './AppRoutes.css';
 import './style/style.css';
+import './AppRoutes.css';
 
 import Login from './components/Login/Login';
+import signUp from './components/singup/singup';
 import Header from './components/Header';
 import Chats from './components/Chats/Chats';
 import Carers from './components/Carers/Carers';
@@ -34,6 +35,8 @@ const AppRoutes = () => (
               <Route path="/connection" component={Connection} />
               <Route path="/mybook" component={MyBook} />
               <Route path="/chats" component={Chats} />
+              <Route path="/signUp" component={signUp} />
+              <Route path="/MyFriends" component={Connection} />
               <Route component={Error} />
             </Switch>
             <NavElements />
