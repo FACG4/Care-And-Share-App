@@ -8,6 +8,6 @@ const { postProfile, getProfile } = require('./profile');
 router.post('/login', login.post)
 router.post('/carers', carers.post)
 router.get('/api/profile', getProfile)
-router.post('/api/profile', postProfile)
+router.put('/api/profile', postProfile)
 
 module.exports = router;
