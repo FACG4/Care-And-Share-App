@@ -24,7 +24,6 @@ const passwordCheck = (data, cb) => {
 	});
 };
 const notificationFriendRequest = (data, cb) => {
-console.log("data", data);
 			let sql = {
         text: 'select users.full_name,users.location, connections.id from users INNER JOIN connections ON connections.sender_user_id = users.id where connections.receiver_user_id = $1 AND relation_state = $2',
         values: [data, 'pending']
@@ -36,4 +35,15 @@ console.log("data", data);
 	});
 };
 
-module.exports = {selectAllCarers, passwordCheck, notificationFriendRequest};
+const checkFriendRelation = (data, cb) => {
+	let sql = {
+		text: 'select * from connections where sender_user_id = $1 OR receiver_user_id = $1',
+		values: [data]
+	}
+		db.query(sql, (err, results) =>{
+			if(err) return cb(err);
+			return cb(null, results.rows)
+		} )
+}
+
+module.exports = { checkFriendRelation, selectAllCarers, passwordCheck, notificationFriendRequest};

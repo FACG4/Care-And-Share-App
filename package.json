@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "dbBuild": "node backend/database/db_build.js"
+    "dev": "nodemon backend/index.js",
+    "kill": "fuser -k 4001/tcp",
   }
 }

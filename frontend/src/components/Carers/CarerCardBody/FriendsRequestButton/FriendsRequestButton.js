@@ -7,8 +7,8 @@ const FreindsRequestButton = (props) => {
   const { id: senderId } = handleAuthentication(sessionStorage.getItem('token'));
   return (
     <div>
-      <button type="submit" onClick={() => props.handleFriendsRequest(senderId, receiverId)}>
-        Add Request
+      <button type="submit" onClick={() => props.handleFriendsRequest(senderId, receiverId, props.url)} >
+        {props.title}
       </button>
     </div>
   );

@@ -19,7 +19,7 @@ fetch('/carers', {
   body: JSON.stringify(this.props.userId(this.props.token)),
   headers: {'Content-Type': 'application/json'}
 })
-.then(res => res.json())
+.then(response => response.json())
 .catch (error => console.log("error fetch", error))
 .then(response => {
   this.setState((prevstate) =>   (
@@ -64,7 +64,7 @@ CarerCardBodyHide = () =>{
       <div className="container">
         <Search handleSearchResponse={this.handleSearchResponse}  response={response} />
         {this.state.searchResponse && this.state.searchResponse.length ?
-          <CarerCard  response={searchResponse} CarerCardBodyShow={this.CarerCardBodyShow} />
+          <CarerCard response={searchResponse} CarerCardBodyShow={this.CarerCardBodyShow} userId={this.props.userId} token={this.props.token} />
          :
           <CarerCard  response={response} CarerCardBodyShow={this.CarerCardBodyShow} userId={this.props.userId} token={this.props.token} />
         }
