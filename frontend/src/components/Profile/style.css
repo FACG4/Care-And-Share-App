@@ -50,7 +50,7 @@
   transition: all 0.2s ease;
 }
 
-.public-profile .button {
+.public-profile .button, .public-profile--modal button {
   cursor: pointer;
   width: 90px;
   height: 35px;
@@ -60,4 +60,9 @@
   border: none;
   margin: 0 auto;
   display: block;
+}
+
+.public-profile--modal {
+  text-align: center;
+  font-size: 15px;
 }
