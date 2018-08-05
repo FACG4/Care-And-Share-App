@@ -53,7 +53,7 @@ class Singup extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="singup-container">
         <h2>
 SignUp
         </h2>

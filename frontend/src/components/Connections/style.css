@@ -1,10 +1,15 @@
 .flex-container{
   display: flex;
   flex-wrap: wrap;
-  background-color:  #dcdfe2;
+  justify-content: space-around;
+  width: 90%;
+  min-height: 460px;
+  margin: 15px auto;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .FrindesImage{
   /* border: 1px solid red; */
+  cursor: pointer;
   width: 40%;
   margin-top: 20px;
   margin-left: 5px;
@@ -18,39 +23,28 @@ img{
   max-width: 120px;
   max-height: 150px;
 }
-.modal--style{
-  position: absolute;
-top: 40px;
-left: 40px;
-right: 40px;
-/* bottom: 0px !important; */
 
-border: 1px solid rgb(204, 204, 204);
-background: rgb(255, 255, 255) none repeat scroll 0% 0%;
-overflow: auto;
-border-radius: 4px;
-outline: medium none currentcolor;
-padding: 20px;
-max-width: 302px;
-    margin-left: 308px;
-    margin-top: 113px;
+.modal-close {
+  cursor: pointer;
 }
 
 /* h3{
   text-align:center;
 }; */
 .btn--style{
+  cursor: pointer;
   display:block;
   background-color: rgb(10, 83, 241); /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     /* display: inline-block; */
     font-size: 16px;
     margin: 5% 20%;
     width: 150px;
+    height: 50px;
     border-radius: 25px;
     text-align: center;
 

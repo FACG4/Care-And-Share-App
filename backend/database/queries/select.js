@@ -16,4 +16,14 @@ const selectAllCarers = (data, cb) => {
 	});
 };
 
-module.exports = {selectAllCarers};
+const selectUserData = (id, cb) => {
+  const sql = {
+    text: 'SELECT * FROM users WHERE id = $1',
+    values: [id],
+  }
+  db.query(sql, (err, result) => {
+    if (err) return cb(err);
+    cb(null, result.rows)
+  })
+}
+module.exports = { selectAllCarers, selectUserData };
