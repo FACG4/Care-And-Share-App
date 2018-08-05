@@ -10,6 +10,7 @@ CREATE TABLE "users" (
 "email" varchar(30) NOT NULL UNIQUE,
 "password" varchar(100) NOT NULL,
 "user_role" roles DEFAULT 'user',
+"image" varchar(200) DEFAULT 'https://www.shareicon.net/data/2016/08/05/806962_user_512x512.png',
 "age" int,
 "sitution" varchar(300),
 "location" varchar(30),

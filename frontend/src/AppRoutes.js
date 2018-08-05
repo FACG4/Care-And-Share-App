@@ -15,21 +15,21 @@ import Discussion from './components/Discussions/Discussions';
 import Connection from './components/Connections/Connections';
 import MyBook from './components/MyCarePlan/MyCarePlan';
 
-import Error from "./components/Error";
+import Error from './components/Error';
 
-import NavElements from './components/Navbar/NavElement'
+import NavElements from './components/Navbar/NavElement';
 
 
 const AppRoutes = () => (
   <div className="AppRoutes">
-  <BrowserRouter>
-          <div>
-          <Header connectReq={['adsfa','sdfg']}/>
+    <BrowserRouter>
+    <div>
+            <Header connectReq={['adsfa', 'sdfg']} />
             <Switch>
               <Route path="/" component={Carers} exact />
               <Route path="/login" component={Login} />
               <Route path="/carers" component={Carers} />
-              <Route path="/profile" component={Profile} />
+              {/* <Route path="/profile" component={Profile} /> */}
               <Route path="/diaries" component={Diaries} />
               <Route path="/discussion" component={Discussion} />
               <Route path="/connection" component={Connection} />
@@ -41,8 +41,8 @@ const AppRoutes = () => (
             </Switch>
             <NavElements />
           </div>
-        </BrowserRouter>
-        </div>
+  </BrowserRouter>
+  </div>
 );
 
 export default AppRoutes;
