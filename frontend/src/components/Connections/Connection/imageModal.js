@@ -7,7 +7,8 @@ class OptionModal extends Component {
     super();
     this.state = {
       response: [],
-      action:{}
+      action: {},
+      msg: '',
     };
     this.sendDate = this.sendDate.bind(this);
     this.redirectPage = this.redirectPage.bind(this);
@@ -28,10 +29,10 @@ class OptionModal extends Component {
       .catch(error => console.error('Error:', error))
       .then((response) => {
         if (response) {
-          this.setState({action : { type :'del' , id:userId}})
-         // window.location = 'MyFriends';
+          this.setState({ action: { type: 'del', id: userId }, msg: 'delete friend' });
+          // window.location = 'MyFriends';
         }
-      })
+      });
   }
 
   redirectPage(e) {
@@ -41,7 +42,7 @@ class OptionModal extends Component {
         window.location = `profile/${e.target.id}`;
         break;
       case 'chat':
-        window.location = `charesponset/${e.target.id}`;
+        window.location = `chat/${e.target.id}`;
     }
   }
 
@@ -82,9 +83,19 @@ class OptionModal extends Component {
       delete
 
         </button>
-        <span onClick={()=>closeModel(this.state.action)}>
+        <div>
+          {' '}
+          <span>
+            {' '}
+            {this.state.msg}
+          </span>
+
+        </div>
+        <span onClick={() => closeModel(this.state.action)}>
       close
         </span>
+
+
       </Modal>
     );
   }
