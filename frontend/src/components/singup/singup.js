@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import Input from './singupInput';
 import './style.css';
-/* eslint-disable*/
-class Singup extends Component {
-  constructor() {
-    super();
-    this.state = {
-      response1: '',
-      error: '',
-    };
-    this.handleAddOption = this.handleAddOption.bind(this);
-  }
 
+class Singup extends Component {
   handleAddOption(e) {
     e.preventDefault();
     const signUpValues = {
@@ -27,36 +18,12 @@ class Singup extends Component {
      && signUpValues.email.trim()
      && signUpValues.password.trim()
      && signUpValues.ConfirmPass.trim()) {
-      const url = './api/signUp';
 
-      fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(signUpValues),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }).then(res => res.json())
-        .catch(error => console.error('Error:', error))
-        .then((response) => {
-          if(response.ok){
-          this.setState(() => ({
-            response1: response.ok,
-          }));
-          if(this.state.response1 === 'Success'){
-            window.location = 'login'
-          }
-        }else{
-          this.setState(()=>({
-            error: response.error.detail,
-          }));
-        }
-        });
-     
+    // make fetch to send data
     }
   }
 
   render() {
-
     return (
 
       <div className="container">
@@ -80,15 +47,6 @@ Sign Up
 
         </form>
 
-        {(this.state.error) && (
-        <div>
-          <p>
-user name or email already exists..
-              please try anothr
-          </p>
-        </div>
-        )}
-     
       </div>
     );
   }
