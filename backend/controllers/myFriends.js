@@ -1,4 +1,4 @@
-const { selectFriend, deleteFriend } = require('./../database/queries/friend.js');
+const { selectFriend, deleteFriend } = require('./../database/queries/friend');
 
 exports.post = (req, res) => {
   console.log('modaaal', req.body.id);

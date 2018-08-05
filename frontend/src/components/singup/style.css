@@ -1,11 +1,11 @@
-.signupstyle * {
+* {
   box-sizing: border-box;
 }
-.signupstyle h2{
+h2{
   text-align: center;
   color: #093d5eb3;
 }
-.signupstyle input[type=text], .signupstyle input[type=email],.signupstyle input[type=password]{
+input[type=text], input[type=email],input[type=password]{
   width: 90%;
   padding:12px 2px 12px 5px;
   color: white;
@@ -33,7 +33,7 @@
   color:  white;
 }
 
-.containerr {
+.container {
   border-radius: 5px;
   background-color: #0e91fcb0;
   padding: 20px;
