@@ -1,0 +1,32 @@
+.navStyle{
+  /* padding-top: 545px; */
+  position: absolute;
+  bottom: 0;
+  width: 375px;
+  height: 55px;
+
+}
+
+.navStyle button{
+  cursor: pointer;
+  width: 62px;
+  height: 55px;
+  border: none;
+  background-color: #48A1AF;
+    padding: 5px;
+}
+
+.navStyle button img{
+  margin-top: 4px;
+  width: 60%;
+  height: 51%;
+}
+
+.navStyle button p{
+  margin-top: 4px;
+font-size: 10px;
+}
+
+.active button {
+    background-color: #335e65;
+}

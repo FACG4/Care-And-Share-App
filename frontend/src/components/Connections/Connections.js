@@ -9,7 +9,7 @@ import './style.css';
 
 
 class Connection extends Component {
- 
+
   constructor(){
     super();
     this.state={
@@ -19,23 +19,23 @@ class Connection extends Component {
     this.handelOpenModel= this.handelOpenModel.bind(this);
     this.handelCloseModel = this.handelCloseModel.bind(this);
 
-  
+
   }
 handelOpenModel(){
 this.setState(()=>({
   selectedOption:true
- 
+
 }))
   }
   handelCloseModel(){
     this.setState(()=>({
       selectedOption:false
-     
+
     }))
   }
- 
 
- 
+
+
   render() {
    const {FrindesInfo,selectedOption} = this.state;
 
@@ -46,7 +46,7 @@ this.setState(()=>({
   {
   Object.keys(FrindesInfo).map((key)=><Image
    key={key}
-   id={key} 
+   id={key}
   name={FrindesInfo[key]}
   openModel={this.handelOpenModel}
    />)}
@@ -57,5 +57,3 @@ this.setState(()=>({
 }
 
 export default Connection;
-
-
