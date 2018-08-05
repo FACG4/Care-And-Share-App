@@ -26,7 +26,7 @@ class Singup extends Component {
   render() {
     return (
 
-      <div className="container">
+      <div className=" signupstyle containerr">
 
         <h2>
 SignUp

@@ -42,7 +42,8 @@ class OptionModal extends Component {
         window.location = `profile/${e.target.id}`;
         break;
       case 'chat':
-        window.location = `chat/${e.target.id}`;
+        // window.location = `chat/${e.target.id}`;
+              window.location = 'chats';
     }
   }
 
