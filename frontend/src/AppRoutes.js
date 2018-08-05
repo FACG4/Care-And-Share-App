@@ -7,7 +7,7 @@ import './AppRoutes.css';
 import Login from './components/Login/Login';
 import signUp from './components/singup/singup';
 import Header from './components/Header';
-import Chats from './components/Chats/Chats';
+// import Chats from './components/Chats/Chats';
 import Carers from './components/Carers/Carers';
 import Profile from './components/Profile/Profile';
 import Diaries from './components/MyDiary/MyDiary';
@@ -23,25 +23,25 @@ import NavElements from './components/Navbar/NavElement';
 const AppRoutes = () => (
   <div className="AppRoutes">
     <BrowserRouter>
-    <div>
-            <Header connectReq={['adsfa', 'sdfg']} />
-            <Switch>
-              <Route path="/" component={Carers} exact />
-              <Route path="/login" component={Login} />
-              <Route path="/carers" component={Carers} />
-              {/* <Route path="/profile" component={Profile} /> */}
-              <Route path="/diaries" component={Diaries} />
-              <Route path="/discussion" component={Discussion} />
-              <Route path="/connection" component={Connection} />
-              <Route path="/mybook" component={MyBook} />
-              <Route path="/chats" component={Chats} />
-              <Route path="/signUp" component={signUp} />
-              <Route path="/MyFriends" component={Connection} />
-              <Route component={Error} />
-            </Switch>
-            <NavElements />
-          </div>
-  </BrowserRouter>
+      <div>
+        <Header connectReq={['adsfa', 'sdfg']} />
+        <Switch>
+          <Route path="/" component={Carers} exact />
+          <Route path="/login" component={Login} />
+          <Route path="/carers" component={Carers} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/diaries" component={Diaries} />
+          <Route path="/discussion" component={Discussion} />
+          {/* <Route path="/connection" component={Connection} /> */}
+          <Route path="/mybook" component={MyBook} />
+          {/* <Route path="/chats" component={Chats} /> */}
+          <Route path="/signUp" component={signUp} />
+          <Route path="/connection" component={Connection} />
+          <Route component={Error} />
+        </Switch>
+        <NavElements />
+      </div>
+    </BrowserRouter>
   </div>
 );
 
