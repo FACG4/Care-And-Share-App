@@ -58,7 +58,9 @@ class OptionModal extends Component {
         onRequestClose={closeModel}
         className="modal--style"
       >
-
+        <span onClick={() => closeModel(this.state.action)}>
+      close
+        </span>
 
         <button
           className="btn--style"
@@ -91,9 +93,6 @@ class OptionModal extends Component {
           </span>
 
         </div>
-        <span onClick={() => closeModel(this.state.action)}>
-      close
-        </span>
 
 
       </Modal>
