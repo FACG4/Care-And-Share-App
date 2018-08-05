@@ -1,7 +1,5 @@
 
 
-
-
 // /* eslint-disable */
 import React, { Component } from 'react';
 import Image from './Connection/image';
@@ -15,10 +13,10 @@ class Connection extends Component {
     this.state = {
       selectedOption: undefined,
       response: [],
-      fullName: [],
-      image: [],
+      // fullName: [],
+      // image: [],
       userId: [],
-      modalId:0,
+      modalId: 0,
     };
     this.handelOpenModel = this.handelOpenModel.bind(this);
     this.handelCloseModel = this.handelCloseModel.bind(this);
@@ -36,53 +34,49 @@ class Connection extends Component {
         this.setState(() => (
           {
             response,
-            fullName: response.map(a => a.full_name),
-            image: response.map(b => b.image),
-            userId: response.map(c => c.id),
+            // fullName: response.map(a => a.full_name),
+            // image: response.map(b => b.image),
+            // userId: response.map(c => c.id),
           }
         ));
       });
-      
-
   }
 
   handelOpenModel(id) {
     this.setState({
       selectedOption: true,
-      modalId:id
+      modalId: id,
 
     });
   }
 
-  handelCloseModel() {
+  handelCloseModel(action) {
     this.setState(() => ({
       selectedOption: false,
-
     }));
+
+    if (action.type === 'del') { this.setState({ response: this.state.response.filter(friend => friend.id !== action.id) }); }
   }
 
 
-
-
   render() {
-
     const {
       response, selectedOption, fullName, image, userId,
     } = this.state;
-
+    console.log(response);
     return (
       <div className="flex-container">
         {
 
-  Object.keys(response).map(key => (
+  this.state.response.map((friend, id) => (
     <Image
-      key={key}
-      name={fullName[key]}
-      src={image[key]}
-      id={userId[key]}
+      key={id}
+      name={friend.full_name}
+      src={friend.image}
+      id={friend.id}
       openModel={this.handelOpenModel}
     />
-    
+
   ))}
         <OptionModal selectedOption={selectedOption} closeModel={this.handelCloseModel} userId={this.state.modalId} alluser={this.state.userId} />
 
