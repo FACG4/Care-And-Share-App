@@ -9,6 +9,10 @@
   padding-left: 10px;
 }
 
+.chat input{
+  color:black;
+}
+
 .chat h1{
   color: #48a1af;
   margin-left: 60px;
@@ -187,7 +191,7 @@
 }
 
 .section{
- overflow-y: scroll; 
+ overflow-y: scroll;
  height: 340px;
  margin-top: 20px;
  margin-left: 25px;

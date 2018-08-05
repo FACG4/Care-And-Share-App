@@ -1,10 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import './style/style.css';
 import './AppRoutes.css';
-import './style/style.css'; 
 
 import Login from './components/Login/Login';
+import signUp from './components/singup/singup';
 import Header from './components/Header';
 import Chats from './components/Chats/Chats';
 import Carers from './components/Carers/Carers';
@@ -13,9 +14,11 @@ import Diaries from './components/MyDiary/MyDiary';
 import Discussion from './components/Discussions/Discussions';
 import Connection from './components/Connections/Connections';
 import MyBook from './components/MyCarePlan/MyCarePlan';
-import signUp from './components/singup/singup';
+
 import Error from "./components/Error";
+
 import NavElements from './components/Navbar/NavElement'
+
 
 const AppRoutes = () => (
   <div className="AppRoutes">
