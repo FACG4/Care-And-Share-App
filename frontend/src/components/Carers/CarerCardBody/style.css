@@ -15,11 +15,37 @@
 }
 
 .modal{
-  max-height: 100vh;
+  max-height: 74vh;
   overflow-y: auto;
-  background: ghostwhite;
+  background: #fafafa;
+  color: #575757;
   max-width: 35rem;
   padding: 1rem;
   outline: none;
   margin:2rem 1.2rem 3rem 1.2rem;
+}
+
+.modal h3,p{
+  margin-bottom: 22px;
+}
+
+.modal h4{
+  margin-bottom: 6px;
+}
+
+.modal button{
+  position: absolute;
+  margin-left: 239px;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  background-color: #48A1AF;
+  color: white;
+}
+
+.modal button img{
+  color: white;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
 }

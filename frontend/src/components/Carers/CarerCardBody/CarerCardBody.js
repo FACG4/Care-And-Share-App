@@ -12,36 +12,27 @@ const CarerCardBody = (props) => {
   response && (carer = response.filter(card => card.id === id)[0]);
 
   return (
-    <Modal
-      isOpen={isOpenValue}
-      onRequestClose={CarerCardBodyHide}
-      ariaHideApp={false}
-      closeTimeoutMS={200}
-      className="modal"
-    >
+    <Modal isOpen={isOpenValue} onRequestClose={CarerCardBodyHide} ariaHideApp={false}
+      closeTimeoutMS={200} className="modal">
 
       <div className="modal">
-
-        <h5>
-
-  A Carer from
-          {' '}
+        <h3> A Carer from {' '}
           {
         carer && carer.location
   }
-        </h5>
-        <h5>
+        </h3>
+        <h4>
 
   Age:
           {' '}
           {
         carer && carer.age
   }
-        </h5>
+        </h4>
 
-        <h5>
+        <h4>
   Cared for situation:
-        </h5>
+        </h4>
         {' '}
         {
         carer && (
@@ -51,9 +42,9 @@ const CarerCardBody = (props) => {
         )
   }
 
-        <h5>
+        <h4>
   What I can offer to other carers ?
-        </h5>
+        </h4>
         {' '}
         {
         carer && (
@@ -62,9 +53,9 @@ const CarerCardBody = (props) => {
         </p>
         )
   }
-        <h5>
+        <h4>
   What I looking for ?
-        </h5>
+        </h4>
         {' '}
         {
         carer && (
@@ -74,11 +65,9 @@ const CarerCardBody = (props) => {
         )
   }
 
-        <button type="submit" onClick={CarerCardBodyHide}>
-  Close
-        </button>
         <button type="submit">
-  Add Request
+        <img src="https://i.imgur.com/IDcVgO2.png">
+        </img>
         </button>
 
       </div>
