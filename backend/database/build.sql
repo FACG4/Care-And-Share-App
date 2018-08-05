@@ -28,11 +28,11 @@ CREATE TABLE "connections" (
 );
 
 CREATE TABLE "discussions" (
-	"massage_id" serial NOT NULL,
-	"massage_body" varchar(1000) NOT NULL,
+	"message_id" serial NOT NULL,
+	"message_body" varchar(1000) array,
 	"sender_id" int NOT NULL,
 	"receiver_id" int NOT NULL,
-	CONSTRAINT discussions_pk PRIMARY KEY ("massage_id")
+	CONSTRAINT discussions_pk PRIMARY KEY ("message_id")
 );
 
 ALTER TABLE "connections" ADD CONSTRAINT "connections_fk0" FOREIGN KEY ("sender_user_id") REFERENCES "users"("id");
@@ -50,5 +50,9 @@ INSERT INTO users (full_name, user_name, email, password, age, sitution, locatio
 ('ahmad m3','ahmad3','ahmad3@gmail.com', '$2b$10$KRE5hD7YzFDTsNPWkgXmduQikXy9LHNJz/JRbcSL0mpDARCruino6', '39', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Washington', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.'),
 ('ahmad m4','ahmad4','ahmad4@gmail.com', '$2b$10$KRE5hD7YzFDTsNPWkgXmduQikXy9LHNJz/JRbcSL0mpDARCruino6', '39', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Washington', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.'),
 ('ahmad m5','ahmad5','ahmad5@gmail.com', '$2b$10$KRE5hD7YzFDTsNPWkgXmduQikXy9LHNJz/JRbcSL0mpDARCruino6', '39', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Washington', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.');
+
+INSERT INTO discussions (message_body, sender_id, receiver_id) values
+ ('{"hello", "How are u"}', 1, 2), 
+ ('{"hello2", "how r you"}', 1, 3);
 
 COMMIT;

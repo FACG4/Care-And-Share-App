@@ -4,9 +4,7 @@ const jwt = require('jsonwebtoken');
 
 exports.post = (req, res, next)=>{
   const {username, password} = req.body;
-  console.log(req.body);
   passwordCheck(username, (err, results)=>{
-    console.log("results", results);
     if (err)  return next(err);
     if (!results.length) return res.send({msg: 'Sorry .. Username/Password invalid', status: false});
     bcrypt.compare(password, results[0].password, (errorComparing, result) => {

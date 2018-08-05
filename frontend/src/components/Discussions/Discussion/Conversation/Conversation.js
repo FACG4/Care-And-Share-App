@@ -1,42 +1,49 @@
 import React, {Component} from 'react';
+import AddMessage from './AddMessage';
+import ChatArea from './ChatArea';
 
 class Conversation extends Component{
-state = {
-    messages: [],
+   constructor(props){
+       super(props);
+       this.state = {
+       messages: []
+   }
 
-}
+   this.handleChangeInput = (e) => {
+       
+       this.setState({ [e.target.name]: e.target.value });
+   }
 
-handleMessages = (e) => {
-e.preventDefault();
-this.setState((prevState) => prevState.messages.unshift(this.state.message) )
-
-}
-
-handleMessage = (e) => {
-    this.setState({
-        [e.target.name]: e.target.value
+   this.handleOnSubmitMessages = (e) => {
+                     e.preventDefault();
+                     this.setState({
+                     message: "",
+                     messages: [...this.state.messages, this.state.message]
+                   })
+    fetch('/api/sendmessage', {
+        method: "POST",
+        body: JSON.stringify({messages:this.state.message, senderId: 1, receiverId: 2}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
-}
-    render ()
-                {
-                    
-                    return (
-<div>
-                        <div className="chat-container">
-                            {this.state.messages.map((message) => {
-                                    {
-                                        this.state.message
-                                
-                                        
-                                }
-                            })}
-                        </div>
-                        <form onSubmit={this.handleMessages} >
-                <input name="message" className="message" type="text" onChange={this.handleMessage} />
-            </form>
-     </div>
+        .then(res => res.json())
+        .then(response => console.log("response", response)
+        )                       
+        .catch (err => console.log("error fetch conversation",err)
         )
-                }
-                                   }
 
-export default Conversation;                                   
+}
+   }
+
+    render () {
+             return (
+                  <div className="messenger">
+                     <ChatArea messages={this.state.messages} textContent="No Messages" />
+                     <AddMessage messageValue={this.state.message} handleChangeInput={this.handleChangeInput} handleOnSubmitMessages={this.handleOnSubmitMessages} />    
+                 </div>
+                    )
+                                   }
+                                }
+
+export default Conversation;                               

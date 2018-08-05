@@ -46,4 +46,15 @@ const checkFriendRelation = (data, cb) => {
 		} )
 }
 
-module.exports = { checkFriendRelation, selectAllCarers, passwordCheck, notificationFriendRequest};
+const fetchMessages = (data, cb) => {
+	let sql = {
+		text: 'select * from discussions where sender_id = $1 AND receiver_id = $2',
+		values: [data.senderId, data.receiverId]
+	}
+	db.query(sql, (err, results) => {
+		if (err) return cb(err);
+		return cb(null, results.rows)
+	})
+}
+
+module.exports = { fetchMessages, checkFriendRelation, selectAllCarers, passwordCheck, notificationFriendRequest};

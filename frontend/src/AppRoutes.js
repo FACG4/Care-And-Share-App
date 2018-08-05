@@ -11,6 +11,7 @@ import Signup from './components/singup/singup';
 import './style/style.css';
 import Conversation from './components/Discussions/Discussion/Conversation/Conversation';
 
+
     const token = sessionStorage.getItem('token');
     class AppRoutes extends Component {
         state = {
@@ -34,7 +35,6 @@ import Conversation from './components/Discussions/Discussion/Conversation/Conve
               })
               }
 
-
         render(){
           const PrivateRoute = ({ component: Component }) => (
             <Route
@@ -46,7 +46,6 @@ import Conversation from './components/Discussions/Discussion/Conversation/Conve
           );
                 return(
                   <div>
-
                     <Notification response={this.state.response} />
                     <BrowserRouter>
                       <Switch>

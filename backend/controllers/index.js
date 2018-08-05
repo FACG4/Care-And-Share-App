@@ -8,6 +8,7 @@ const handleRejectFriendRequest = require('./handleRejectFriendRequest')
 const handleAcceptFriendRequest = require('./handleAcceptFriendRequest')
 const checkFriendRelation = require('./checkFriendRelation')
 const cancelFriendRequest = require('./cancelFriendRequest')
+const handleMessages = require('./handleMessages')
 
 router.post('/login', login.post)
 router.post('/carers', carers.post)
@@ -17,6 +18,7 @@ router.post('/api/friendrequestcancel', handleRejectFriendRequest.post)
 router.post('/api/friendrequestaccept', handleAcceptFriendRequest.post)
 router.post('/api/checkFriendRelation', checkFriendRelation.post)
 router.post('/api/cancelfriendrequest', cancelFriendRequest.post)
+router.post('/api/sendmessage', handleMessages.post)
 
 
 
