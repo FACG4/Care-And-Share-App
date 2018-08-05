@@ -9,6 +9,10 @@
   padding-left: 10px;
 }
 
+.chat input{
+  color:black;
+}
+
 .chat h1{
   color: #48a1af;
   margin-left: 60px;
