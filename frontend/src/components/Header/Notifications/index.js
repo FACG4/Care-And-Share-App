@@ -8,6 +8,16 @@ import './style.css';
 class Notifications extends Component {
   state = {
     show: false,
+    connectReq: [ //should be fetched from db
+      { name: 'ahmed', id:1 },
+      { name: 'mohammed', id:2 },
+      { name: 'abdSamad', id:3 },
+      { name: 'Frah', id:4 },
+      { name: 'Ramy', id:5 },
+      { name: 'Inass', id:6 },
+      { name: 'Isaac', id:7 },
+      { name: 'Marwa', id:8 },
+    ]
   }
 
   toggleNotification = (e) => {
@@ -17,8 +27,7 @@ class Notifications extends Component {
   }
 
   render () {
-    const { connectReq } = this.props;
-    const { show } = this.state;
+    const { show, connectReq } = this.state;
     
     const notifications = connectReq.length? connectReq.map(element => {
       return <Notification name={element.name} key={element.id} />
