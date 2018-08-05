@@ -18,7 +18,6 @@ const postProfile = (req, res) => {
   data.id = id;
   insertProfileData(data, (err, result) => {
     if (err) {
-      console.error(err)
       res.send({ err: 'Something went wrong'});
     } else {
       res.send({ msg: 'profile has been updated'});
@@ -30,7 +29,6 @@ const getProfile = (req, res, ) => {
   const { id } = req.query;
   getProfileData(id, (err, result) => {
     if (err) {
-      console.log('getProfile', err);
       res.send({ err: 'Something went wrong'});
       return;
     }
