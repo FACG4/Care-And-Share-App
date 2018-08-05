@@ -25,20 +25,22 @@ const AppRoutes = () => (
   <BrowserRouter>
           <div>
           <Header connectReq={['adsfa','sdfg']}/>
-            <Switch>
-              <Route path="/" component={Carers} exact />
-              <Route path="/login" component={Login} />
-              <Route path="/carers" component={Carers} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/diaries" component={Diaries} />
-              <Route path="/discussion" component={Discussion} />
-              <Route path="/connection" component={Connection} />
-              <Route path="/mybook" component={MyBook} />
-              <Route path="/chats" component={Chats} />
-              <Route path="/signUp" component={signUp} />
-              <Route path="/MyFriends" component={Connection} />
-              <Route component={Error} />
-            </Switch>
+            <main className='main'>
+              <Switch>
+                <Route path="/" component={Carers} exact />
+                <Route path="/login" component={Login} />
+                <Route path="/carers" component={Carers} />
+                <Route path="/profile" component={Profile} />
+                <Route path="/diaries" component={Diaries} />
+                <Route path="/discussion" component={Discussion} />
+                <Route path="/connection" component={Connection} />
+                <Route path="/mybook" component={MyBook} />
+                <Route path="/chats" component={Chats} />
+                <Route path="/signUp" component={signUp} />
+                <Route path="/MyFriends" component={Connection} />
+                <Route component={Error} />
+              </Switch>
+              </main>
             <NavElements />
           </div>
         </BrowserRouter>

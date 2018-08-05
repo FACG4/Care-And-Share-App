@@ -16,8 +16,11 @@ const postProfile = (req, res) => {
     return;
   }
   data.id = id;
+  data.date_of_birth = 35;  // just to make it work, we should change db type
+  console.log(data)
   insertProfileData(data, (err, result) => {
     if (err) {
+      console.error('insertProfileData', err);
       res.send({ err: 'Something went wrong'});
     } else {
       res.send({ msg: 'profile has been updated'});

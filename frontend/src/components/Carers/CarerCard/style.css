@@ -1,5 +1,5 @@
 .carersCards{
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   max-height: 406px;
   margin-top: -17px;
 }
