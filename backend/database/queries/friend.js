@@ -23,7 +23,7 @@ const deleteFriend = (id, cb) => {
     }
 
 
-    // console.log('delete', res.rows);
+    
     cb(null, res.rows);
   });
 };

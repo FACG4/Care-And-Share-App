@@ -1,6 +1,6 @@
 
 
-// /* eslint-disable */
+/* eslint-disable */
 import React, { Component } from 'react';
 import Image from './Connection/image';
 import OptionModal from './Connection/imageModal';
@@ -29,8 +29,6 @@ class Connection extends Component {
     }).then(res => res.json())
       .catch(error => console.error('Error:', error))
       .then((response) => {
-        // console.log('hh', response);
-
         this.setState(() => (
           {
             response,
