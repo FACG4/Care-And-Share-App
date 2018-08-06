@@ -47,7 +47,7 @@ import './AppRoutes.css';
           const PrivateRoute = ({ component: Component }) => (
             <Route
               render={props => (
-                handleAuthentication(token).status ? <Component {...props} />
+                handleAuthentication(token).status ? <Component userId={handleAuthentication(token).id} {...props} />
                   : <Redirect to="/login" />
               )}
             />

@@ -1,7 +1,8 @@
 BEGIN;
 DROP TABLE IF EXISTS users, connections, discussions CASCADE;
--- CREATE TYPE roles AS ENUM ('user');
--- CREATE TYPE states AS ENUM ('approved', 'pending', 'decline');
+DROP TYPE IF EXISTS roles, states;
+CREATE TYPE roles AS ENUM ('user');
+CREATE TYPE states AS ENUM ('approved', 'pending', 'decline');
 
 CREATE TABLE "users" (
   "id" serial NOT NULL,

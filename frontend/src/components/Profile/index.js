@@ -30,7 +30,8 @@ class ProfileForm extends Component{
   }
 
   componentDidMount() {
-    const id = 4; // should get the id from the login token??
+    console.log('userId', this.props.userId)
+    const id = this.props.userId; // should get the id from the login token??
     fetch(`api/profile?id=${id}`, {
       credentials: 'same-origin',
       method: 'GET',
@@ -75,7 +76,7 @@ class ProfileForm extends Component{
   handleSubmit = (e) => {
     e.preventDefault();
     const { formData } = this.state;
-    const id = 4; // should get the id from the login token??
+    const id = this.props.userId; // should get the id from the login token??
     fetch(`api/profile?id=${id}`, {
       credentials: 'same-origin',
       headers: {

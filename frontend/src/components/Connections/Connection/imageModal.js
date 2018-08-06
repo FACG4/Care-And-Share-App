@@ -56,7 +56,7 @@ class OptionModal extends Component {
       .catch(error => console.error('Error:', error))
       .then((response) => {
         if (response) {
-          this.setState({ action: { type: 'del', id: userId }, msg: 'delete friend' });
+          this.setState({ action: { type: 'del', id: userId }, msg: 'Friend deleted' });
         }
       });
   }
@@ -81,7 +81,7 @@ class OptionModal extends Component {
       this.setState({
         profileId: e.target.id,
       });
-      this.openProfileModal();
+      this.getProfileData(e.target.id);
         break;
       case 'chat':
               window.location = 'chats';
@@ -102,7 +102,10 @@ class OptionModal extends Component {
         style={customStyles}
        
       >
-        <span className="modal-close" onClick={() => closeModel(this.state.action)}>
+        <span className="modal-close" onClick={() =>{
+          this.setState({msg: ''})
+          closeModel(this.state.action)
+          }}>
       close
         </span>
 
@@ -129,7 +132,7 @@ class OptionModal extends Component {
       delete
 
         </button>
-        <div>
+        <div className="error">
           {' '}
           <span>
             {' '}
