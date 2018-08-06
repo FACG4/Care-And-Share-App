@@ -5,10 +5,10 @@ const Image = ({
   openModel, name, id, src,
 }) => (
   <div className="FrindesImage" onClick={() => openModel(id)}>
-    <img src={src} alt="avata" />
-    <h3>
+    <img className="image-style" src={src} alt="avata" />
+    <h4 className="frined--style">
       {name}
-    </h3>
+    </h4>
   </div>
 );
 

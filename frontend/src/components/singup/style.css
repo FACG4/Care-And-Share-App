@@ -1,37 +1,50 @@
-
-
-
-.btn-signUp{
-  color:  #093d5eb3;
-  padding: 12px 20px;
-  border-radius: 15px;
-  float: right;
-  margin-top:10px;
-  font-weight: bold;
-  letter-spacing: 1px;
+* {
+  box-sizing: border-box;
+}
+.h2--style{
+  text-align: center;
+  color: #093d5eb3;
+  padding-bottom: 15px;
+  padding-top: 20vh;
+}
+.container input{
+  width: 90%;
+  padding:20px 2px 12px 10px;
+  color:#2d2f32;
+  resize: vertical;
   border: none;
-  margin-top: 70px;
+  background-color:#3e9ae600;
+  border-bottom:  1px solid rgba(119, 108, 108, 0.71);
+  font-size: 20px;
 }
 
-.btn-signUp:hover {
-  background-color: #093d5eb3;
-  color:  white;
-}
-
-.color--icon{
-  color: #fffdfde6;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-@media screen and (max-width: 600px) {
 .btn-signUp{
-      width: 100%;
+  color: #2c3338;
+padding: 10px 20px;
+border-radius: 15px;
+float: right;
+margin-top: 10px;
+font-weight: bold;
+letter-spacing: 1px;
+border: none;
+margin-top: 50px;
+width: 100%;
+background-color: #48a1af;
+box-shadow: 3px 3px 4px grey
 
-  }
 }
+
+
+.container {
+  border-radius: 5px;
+  background-color: #c5dcefb3;;
+  padding: 20px;
+  height: 667px;
+}
+.color--icon{
+  color: #2d2f32;
+}
+
+
+
+

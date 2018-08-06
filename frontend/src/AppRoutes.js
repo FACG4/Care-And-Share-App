@@ -57,8 +57,8 @@ import './AppRoutes.css';
 
                     <BrowserRouter>
                     <div>
-                        {(window.location.pathname !== ('/login' && '/signup')) && <Header response={this.state.response} connectReq={['adsfa', 'sdfg']} />}
-                    
+                        {(window.location.pathname !== '/login' && window.location.pathname !== '/signup') && <Header response={this.state.response} />}
+                        <div className={(window.location.pathname !== '/login' && window.location.pathname !== '/signup')  && "main"}>
                       <Switch>
                         <Route
                           path="/"
@@ -77,8 +77,8 @@ import './AppRoutes.css';
                         <Route path="/signUp" render={props => (handleAuthentication(token).status ? 
                         <Redirect to="/" />
                           : <Signup {...props} handleAuthentication={handleAuthentication} />)} />
-                        <PrivateRoute path="/chat2" component={Conversation} />
-                          
+                        
+                            <PrivateRoute path="/chat2" component={Conversation} />    
                             <PrivateRoute path="/profile" component={Profile} />
                             <PrivateRoute path="/diaries" component={Diaries} />
                             <PrivateRoute path="/discussion" component={Discussion} />
@@ -87,7 +87,8 @@ import './AppRoutes.css';
                             <PrivateRoute path="/chats" component={Chats} />
                             <PrivateRoute component={Error} />
                       </Switch>
-                        {(window.location.pathname !== ('/login' && '/signup')) && <NavElements />}
+                          </div>
+                        {(window.location.pathname !== '/login' && window.location.pathname !== '/signup') && <NavElements />}
                       </div>
                     </BrowserRouter>
 

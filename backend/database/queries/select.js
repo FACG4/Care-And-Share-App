@@ -57,4 +57,14 @@ const fetchMessages = (data, cb) => {
 	})
 }
 
-module.exports = { fetchMessages, checkFriendRelation, selectAllCarers, passwordCheck, notificationFriendRequest};
+const selectUserData = (id, cb) => {
+	const sql = {
+		text: 'SELECT * FROM users WHERE id = $1',
+		values: [id],
+	}
+	db.query(sql, (err, result) => {
+		if (err) return cb(err);
+		cb(null, result.rows)
+	})
+}
+module.exports = { selectUserData, fetchMessages, checkFriendRelation, selectAllCarers, passwordCheck, notificationFriendRequest};

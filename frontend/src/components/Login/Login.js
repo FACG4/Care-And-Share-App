@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import FontAwesomeIcon from 'react-fontawesome';
+
 import './style.css';
 
 class Login extends Component {
@@ -58,38 +60,31 @@ handleInputChange = (e) => {
  }
 
 
- render() {
-   return (
-     <div className="container">
-       <div className="login-header">
-         <h3 className="login-header--title">
-           {' '}
-Sign In
-           {' '}
-         </h3>
-         <h3 className="login-header--title">
-           {' '}
-SignUp
-           {' '}
-         </h3>
-       </div>
-       <form className="login-form" method="POST" onSubmit={this.handelLogin}>
-         <div className="login-input">
-           <input className="login-input-field" name="username" type="text" placeholder="Username" value={this.state.username} onChange={this.handleInputChange} />
-           <input className="login-input-field" name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
-         </div>
-         <button className="big-button">
-Sign In
-         </button>
-       </form>
-       {this.state.error && (
-       <div className="login-error-msg">
-           {this.state.error}
-       </div>
-       )}
-     </div>
-   );
- }
+
+render(){
+  return(
+    <div className="container-login">
+    <div className="login-header">
+    {/* <h3 className="login-header--title"> Sign In </h3> */}
+    <h3 className="login-header--title"> Login </h3>
+    </div>
+    <form className="login-form" method="POST" onSubmit={this.handelLogin} >
+    <div className="login-input">
+    <div>
+            <FontAwesomeIcon className="fas fa-user-circle color--icon" /><input className="login-input-field" name="username" type="text" placeholder="Username" value={this.state.username} onChange={this.handleInputChange} />
+    </div>
+    <div>
+            <FontAwesomeIcon className="fas fa-key  color--icon" /><input className="login-input-field" name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+    </div>
+    </div>
+    <button className="big-button">Sign In</button>
+    </form>
+  {this.state.error &&  <div className="login-error-msg">
+    { <h3>{this.state.error}</h3>}
+    </div>}
+</div>
+  )
+}
 }
 
 export default Login;

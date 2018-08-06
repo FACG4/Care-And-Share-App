@@ -1,47 +1,46 @@
-.big-button{
-background: cadetblue;
-border: none;
-border-bottom: 0.6rem solid darkcyan;
-color: white;
-font-weight: bold;
-font-size: 2rem;
-margin-top: 4.8rem;
-padding: 2.4rem;
-width: 100%;
-cursor: pointer;
-}
-.login-header{
-background: cadetblue;
-color: whitesmoke;
-padding: 1.2rem;
-display: flex;
-justify-content: space-between;
+* {
+  box-sizing: border-box;
 }
 .login-header--title{
-  margin:0;
-  cursor: pointer;
-}
-.login-form{
-  background: darkgray;
-  margin-bottom: 3.6rem;
-}
-.login-input{
-  display:block;
-  width: 100%;
-}
-.login-input-field{
-  background: gray;
-  border: none;
-  color: white;
-  padding: 1.9rem;
-  border-bottom: 0.3rem solid darkgray;
-width: -moz-available;
-  margin: 4.5rem 4rem 0 4rem;
-}
-.login-error-msg{
-  color: darkcyan;
-  margin: 0;
-  padding: 2.3rem;
   text-align: center;
-  background: darkgray;
+  color: #093d5eb3;
+  padding-bottom: 15px;
+  margin-top: 40%;
+}
+.container-login input{
+  width: 90%;
+  padding:20px 2px 12px 10px;
+  color:#2d2f32;
+  resize: vertical;
+  border: none;
+  background-color:#3e9ae600;
+  border-bottom:  1px solid rgba(119, 108, 108, 0.71);
+  font-size: 20px;
+}
+
+.container-login .big-button{
+  color: #2c3338;
+padding: 10px 20px;
+border-radius: 15px;
+float: right;
+margin-top: 10px;
+font-weight: bold;
+letter-spacing: 1px;
+border: none;
+margin-top: 50px;
+width: 100%;
+background-color: #48a1af;
+box-shadow: 3px 3px 4px grey
+
+}
+
+
+.container-login{
+  border-radius: 5px;
+  background-color: #c5dcefb3;;
+  padding: 20px;
+  height: 667px;
+}
+.color--icon{
+  color: #2d2f32;
 }

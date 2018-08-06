@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './singupInput';
+
 import './style.css';
 /* eslint-disable*/
 class Singup extends Component {
@@ -54,13 +55,13 @@ class Singup extends Component {
   render() {
     return (
       <div className="container">
-        <h2>
+        <h2 class="h2--style">
 SignUp
         </h2>
         <form onSubmit={this.handleAddOption}>
           <Input type="text" placeholder="Full Name" icon="fas fa-user-circle color--icon" name="fullName" />
           <Input type="text" placeholder="User Name" icon="fas fa-user-circle color--icon" name="userName" />
-          <Input type="email" placeholder="Email" icon="fas fa-key color--icon" name="email" />
+          <Input type="email" placeholder="Email" icon="fa-envelope color--icon" name="email" />
           <Input type="password" placeholder="Password" icon="fas fa-key  color--icon" name="password" />
           <Input type="password" placeholder="Confirm Password" icon="fas fa-key color--icon" name="ConfirmPass" />
           <div className="row">

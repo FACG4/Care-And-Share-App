@@ -2,7 +2,6 @@
         import Modal from 'react-modal';
         import PropTypes from 'prop-types';
         import FreindsRequestButton from './FriendsRequestButton/FriendsRequestButton';
-        import FreindsRequestAlert from './FriendRequestAlert/FriendRequestAlert';
         import handleAuthentication from '../../../helpers/handleAuthentication';
 
         import './style.css';
@@ -159,12 +158,11 @@
                     Close
                           </button>
                           {(relation.length === 0) ?
-                    <FreindsRequestButton title="Add Friend" url="/api/freindsrequest" receiverId={id} handleFriendsRequest={this.handleFriendsRequest} />                   
+                    <FreindsRequestButton icon="fas fa-user-plus add-ico" url="/api/freindsrequest" receiverId={id} handleFriendsRequest={this.handleFriendsRequest} />                   
                     :
-                    <FreindsRequestButton title="Cancel Friend Request" url="/api/cancelfriendrequest" receiverId={id} handleFriendsRequest={this.handleFriendsRequest} />                   
+                    <FreindsRequestButton icon="fa fa-minus add-ico" url="/api/cancelfriendrequest" receiverId={id} handleFriendsRequest={this.handleFriendsRequest} />                   
 
                           }
-                          {this.state.cardShow && <FreindsRequestAlert msg={msg} FreindRequestAlertHide={this.FreindRequestAlertHide} isOpenValue={show} />}
                         </div>
                       </Modal>
             );

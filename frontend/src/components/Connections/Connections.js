@@ -13,8 +13,6 @@ class Connection extends Component {
     this.state = {
       selectedOption: undefined,
       response: [],
-      // fullName: [],
-      // image: [],
       userId: [],
       modalId: 0,
     };
@@ -32,9 +30,6 @@ class Connection extends Component {
         this.setState(() => (
           {
             response,
-            // fullName: response.map(a => a.full_name),
-            // image: response.map(b => b.image),
-            // userId: response.map(c => c.id),
           }
         ));
       });

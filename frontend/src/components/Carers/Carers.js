@@ -61,7 +61,7 @@ CarerCardBodyHide = () =>{
   render() {
     const {cardShow:show, response, searchResponse} = this.state;
     return (
-      <div className="container">
+      <div className="container-cards">
         <Search handleSearchResponse={this.handleSearchResponse}  response={response} />
         {this.state.searchResponse && this.state.searchResponse.length ?
           <CarerCard response={searchResponse} CarerCardBodyShow={this.CarerCardBodyShow} userId={this.props.userId} token={this.props.token} />

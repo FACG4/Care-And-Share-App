@@ -1,4 +1,5 @@
 const { insertProfileData, getProfileData } = require('../database/queries/profile');
+const { selectUserData } = require('../database/queries/select');
 
 const postProfile = (req, res) => {
   const data = req.body;
@@ -16,8 +17,11 @@ const postProfile = (req, res) => {
     return;
   }
   data.id = id;
+  data.date_of_birth = 35;  // just to make it work, we should change db type
+  console.log(data)
   insertProfileData(data, (err, result) => {
     if (err) {
+      console.error('insertProfileData', err);
       res.send({ err: 'Something went wrong'});
     } else {
       res.send({ msg: 'profile has been updated'});
@@ -25,11 +29,11 @@ const postProfile = (req, res) => {
   });
 }
 
-const getProfile = (req, res, ) => {
+const getProfile = (req, res) => {
   const { id } = req.query;
   getProfileData(id, (err, result) => {
     if (err) {
-      res.send({ err: 'Something went wrong'});
+      res.send({ err: 'Something went wrong, try again later'});
       return;
     }
     if (result.length === 0) {
@@ -41,4 +45,21 @@ const getProfile = (req, res, ) => {
   });
 }
 
-module.exports = { postProfile, getProfile };
+const getUserData = (req, res) => {
+  const { id } = req.query;
+  // check the token and check if the user can lookup this user profile
+  selectUserData(Number(id), (err, result) => {
+    if(err) {
+      console.error('getUserData error', err);
+      res.send({ err: 'Something went wrong, try again later'})
+      return;
+    }
+    if (result.length === 0) {
+      res.send({ err: 'There is no recored for this id'});
+      return;
+    }
+    res.send(result);
+  });
+
+}
+module.exports = { postProfile, getProfile, getUserData };

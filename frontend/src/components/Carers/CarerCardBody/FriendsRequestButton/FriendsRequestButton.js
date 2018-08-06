@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FontAwesomeIcon from 'react-fontawesome';
 import handleAuthentication from '../../../../helpers/handleAuthentication';
 
 const FreindsRequestButton = (props) => {
@@ -8,7 +9,7 @@ const FreindsRequestButton = (props) => {
   return (
     <div>
       <button type="submit" onClick={() => props.handleFriendsRequest(senderId, receiverId, props.url)} >
-        {props.title}
+        <FontAwesomeIcon className={props.icon} />
       </button>
     </div>
   );

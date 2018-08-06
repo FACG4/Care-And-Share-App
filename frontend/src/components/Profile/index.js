@@ -21,11 +21,11 @@ class ProfileForm extends Component{
     modalTitle: '',
     locations: ['London', 'Gaza', 'Bristol', 'Liverpool'],
     formData:{
-      cared_for_situation: "Alzheimer",
+      cared_for_situation: "",
       date_of_birth: "2018-08-04",
-      location: "LONDON",
-      looking_for: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      offer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
+      location: "",
+      looking_for: "",
+      offer: "",
     },
   }
 
@@ -38,11 +38,13 @@ class ProfileForm extends Component{
       .then((res) => {
         const { sitution: cared_for_situation, age: date_of_birth, location, looking: looking_for, offer} = res[0];
         this.setState({
-          cared_for_situation,
-          date_of_birth,
-          location,
-          looking_for,
-          offer,
+          formData: {
+            cared_for_situation,
+            date_of_birth,
+            location,
+            looking_for,
+            offer,
+          }
         })
       })
       .catch((err)=> {
@@ -69,7 +71,7 @@ class ProfileForm extends Component{
       return { formData };
     });
   }
-  
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { formData } = this.state;
@@ -80,9 +82,12 @@ class ProfileForm extends Component{
         'content-type': 'application/json',
       },
       method: 'PUT',
-      body: formData,
+      body: JSON.stringify(formData),
     }).then(res=>res.json())
       .then((res) => {
+        if (res.err) {
+          this.openModal('Error', 'Some error happened, please try save the data again');
+        }
         this.openModal('Success', 'Your profile has been updated');
       })
       .catch((err) => {
@@ -122,7 +127,7 @@ class ProfileForm extends Component{
           style={customStyles}
         >
           <div className="public-profile--modal">
-            <h2>Error</h2>
+            <h2>{this.state.modalTitle}</h2>
             <p>{this.state.modalMsg}</p>
             <button onClick={this.closeModal}>Ok</button>
           </div>
@@ -130,16 +135,16 @@ class ProfileForm extends Component{
         <form className="public-profile" onBlur={this.handleBlur} onFocus={this.handleFocus} onSubmit={this.handleSubmit} >
           <label htmlFor="location">Location:</label>
           <Fontawesome className="caret-down" name="caret-down" />
-          <select name="location" id="location" defaultValue={location? location:"no-value"} onChange={this.handleChange} >
+          <select name="location" id="location" value={location? location:"no-value"} onChange={this.handleChange} >
             <option disabled value="no-value">Select a location</option>
             {locations.map(location => {
               return <option key={location} value={location.toUpperCase()}>{location}</option>
-            })} 
+            })}
           </select>
 
           <label htmlFor="dateOfBirth">Date Of Birth:</label>
           <input type="date" name="date_of_birth" id="dateOfBirth" value={date_of_birth} onChange={this.handleChange} />
-          
+
           <label htmlFor="caredForSituation">Cared For Situtation</label>
           <input type="text" name="cared_for_situation" id="caredForSituation" value={cared_for_situation} onChange={this.handleChange}/>
 

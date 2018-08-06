@@ -1,12 +1,14 @@
-const { selectFriend, deleteFriend } = require('./../database/queries/friend');
+const { selectFriend } = require('./../database/queries/friend');
+const { cancelFriendRequest } = require('./../database/queries/delete');
 
 exports.post = (req, res) => {
+console.log("hhhh",req.body);
 
-  if (req.body.id) {
+  if (req.body.senderId) {
     
-    deleteFriend(req.body.id, (err, results) => {
+    cancelFriendRequest(req.body, (err, results) => {
       if (err) return res.send('error', err);
-      return res.send(results);
+      return res.send({isDeleted: true,});
     });
   } else {
     selectFriend((err, results) => {

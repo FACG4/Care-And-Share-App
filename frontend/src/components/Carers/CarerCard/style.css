@@ -1,7 +1,7 @@
 .carersCards{
-  overflow-y: scroll;
-  max-height: 406px;
-  margin-top: -17px;
+overflow-y: scroll;
+max-height: 406px;
+margin-top: -17px;
 }
 .carer-card{
 background: white;
@@ -9,28 +9,28 @@ padding: 1.2rem 3rem;
 margin: 1.6rem 0 0 0;
 border-radius: .01rem;
 cursor: pointer;
- box-shadow: 0px 1px gray;
+box-shadow: 0px 1px gray;
 }
 .carer-card-info{
-  border-bottom: .1rem solid lightgray;
-  box-shadow: 0 0.01rem gray;
-  margin-bottom: .5rem;
+border-bottom: .1rem solid lightgray;
+box-shadow: 0 0.01rem gray;
+margin-bottom: .5rem;
 }
 .span-bold{
-  font-weight: bold;
-  font-size: 1.3rem;
+font-weight: bold;
+font-size: 1.3rem;
 }
 .span-normal{
-  font-size: 1.4rem;
+font-size: 1.4rem;
 }
 
 .more-button{
-  display: block;
-  border: none;
-  padding: .3rem;
-  background: white;
-  border-bottom: 0.2rem solid gray;
-  font-size: 1.8rem;
-  margin: auto;
-  cursor: pointer;
+display: block;
+border: none;
+padding: .3rem;
+background: white;
+border-bottom: 0.2rem solid gray;
+font-size: 1.8rem;
+margin: auto;
+cursor: pointer;
 }
