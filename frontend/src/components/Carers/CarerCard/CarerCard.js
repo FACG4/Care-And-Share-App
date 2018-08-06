@@ -5,7 +5,7 @@ import './style.css';
 const Carer = (props) => {
   const { response, CarerCardBodyShow } = props;
   return (
-    <div>
+    <div className="carersCards">
 
       {response && response.map(carer => (
         <div className="carer-card" role="presentation" key={carer.id} onClick={() => CarerCardBodyShow(carer.id)} onKeyDown={() => CarerCardBodyShow(carer.id)}>

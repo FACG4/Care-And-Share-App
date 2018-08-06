@@ -1,7 +1,7 @@
 BEGIN;
-DROP TABLE IF EXISTS  users, connections, discussions CASCADE;
-CREATE TYPE roles AS ENUM ('user');
-CREATE TYPE states AS ENUM ('approved', 'pending', 'decline');
+DROP TABLE IF EXISTS users, connections, discussions CASCADE;
+-- CREATE TYPE roles AS ENUM ('user');
+-- CREATE TYPE states AS ENUM ('approved', 'pending', 'decline');
 
 CREATE TABLE "users" (
   "id" serial NOT NULL,
@@ -10,6 +10,7 @@ CREATE TABLE "users" (
 	"email" varchar(30) NOT NULL UNIQUE,
 	"password" varchar(100) NOT NULL,
   "user_role" roles DEFAULT 'user',
+  "image" varchar(200) DEFAULT 'https://www.shareicon.net/data/2016/08/05/806962_user_512x512.png',
 	"age" int,
 	"sitution" varchar(300),
 	"location" varchar(30),
@@ -35,10 +36,10 @@ CREATE TABLE "discussions" (
 	CONSTRAINT discussions_pk PRIMARY KEY ("message_id")
 );
 
-ALTER TABLE "connections" ADD CONSTRAINT "connections_fk0" FOREIGN KEY ("sender_user_id") REFERENCES "users"("id");
-ALTER TABLE "connections" ADD CONSTRAINT "connections_fk1" FOREIGN KEY ("receiver_user_id") REFERENCES "users"("id");
-ALTER TABLE "discussions" ADD CONSTRAINT "discussions_fk0" FOREIGN KEY ("sender_id") REFERENCES "users"("id");
-ALTER TABLE "discussions" ADD CONSTRAINT "discussions_fk1" FOREIGN KEY ("receiver_id") REFERENCES "users"("id");
+ALTER TABLE "connections" ADD CONSTRAINT "connections_fk0" FOREIGN KEY ("sender_user_id") REFERENCES "users"("id")  ON DELETE CASCADE;
+ALTER TABLE "connections" ADD CONSTRAINT "connections_fk1" FOREIGN KEY ("receiver_user_id") REFERENCES "users"("id")  ON DELETE CASCADE;
+ALTER TABLE "discussions" ADD CONSTRAINT "discussions_fk0" FOREIGN KEY ("sender_id") REFERENCES "users"("id")  ON DELETE CASCADE;
+ALTER TABLE "discussions" ADD CONSTRAINT "discussions_fk1" FOREIGN KEY ("receiver_id") REFERENCES "users"("id")  ON DELETE CASCADE;
 
 
 INSERT INTO users (full_name, user_name, email, password, age, sitution, location, offer, looking) VALUES

@@ -3,7 +3,7 @@ const db = require('./../db_connection');
 
 const rejectFriendRequest = (data, cb) => {
 let  sql = {
-  text: 'delete from connections where id = $1',
+  text: 'delete from connections where id = $1 returning *',
   values: [data]
 };
 

@@ -2,13 +2,13 @@ import React from 'react';
 
 import './style.css';
 
-const Notification = ({name}) => {
+const Notification = ({ name, handleFriendRequestStatus, id}) => {
     return (
       <div className="notification-wrapper">
         <p>{name} wants to connect with you!</p>
         <div>
-          <button>Accept</button>
-          <button>Decline</button>
+          <button onClick={() => handleFriendRequestStatus(id, '/api/friendrequestaccept')}>Accept</button>
+          <button onClick={() => handleFriendRequestStatus(id, '/api/friendrequestcancel')}>Decline</button>
         </div>
       </div>
     );

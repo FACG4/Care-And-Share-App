@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
 import FontAwesomeIcon from 'react-fontawesome'
-
 import Notification from './Notification/Notification';
-
 import './style.css';
 
 class Notifications extends Component {
   state = {
     show: false,
-    connectReq: [ //should be fetched from db
-      { name: 'ahmed', id:1 },
-      { name: 'mohammed', id:2 },
-      { name: 'abdSamad', id:3 },
-      { name: 'Frah', id:4 },
-      { name: 'Ramy', id:5 },
-      { name: 'Inass', id:6 },
-      { name: 'Isaac', id:7 },
-      { name: 'Marwa', id:8 },
-    ]
+    response: []
+  }
+
+  componentWillReceiveProps() {
+    
+    this.setState({ response: Object.assign([], this.props.response) }, () => this.setState({ response: Object.assign([], this.props.response) })
+    )
+  }
+
+  handleFriendRequestStatus = (id, url) => {
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ connectionsId: id }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(response => this.setState({
+        response: Object.assign([], this.state.response.filter((noti) => (noti.id !== id)
+        ))
+      })
+      )
+      .catch(error => console.log("error fetch", error))
   }
 
   toggleNotification = (e) => {
@@ -27,17 +40,15 @@ class Notifications extends Component {
   }
 
   render () {
-    const { show, connectReq } = this.state;
-    
-    const notifications = connectReq.length? connectReq.map(element => {
-      return <Notification name={element.name} key={element.id} />
+    const { show, response } = this.state;
+    const notifications = response.length? response.map(element => {
+      return <Notification handleFriendRequestStatus={this.handleFriendRequestStatus} id={element.id} name={element.full_name} key={element.id} />
     }):<p>You have no notifications</p>;
-
     return(
       <React.Fragment>
         <a onClick={this.toggleNotification} className="notification">
           <div>
-            {(connectReq.length && !show)?<span className="num">{connectReq.length}</span>:''}
+            {(response.length && !show)?<span className="num">{response.length}</span>:''}
             <FontAwesomeIcon name="bell-o" />
           </div>
         </a>
@@ -50,3 +61,7 @@ class Notifications extends Component {
 }
 
 export default Notifications;
+
+
+
+
