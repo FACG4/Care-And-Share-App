@@ -15,7 +15,7 @@ class Header extends Component {
   render(){
     return(
       <header className="App-header">
-        <Notifications />
+        <Notifications response={this.props.response} />
         <HeaderTitle title={this.props.title} />
         
         <a className="menu">

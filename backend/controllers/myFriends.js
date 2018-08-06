@@ -1,18 +1,16 @@
-const { selectFriend, deleteFriend } = require('./../database/queries/friend');
+const { selectFriend } = require('./../database/queries/friend');
+const { cancelFriendRequest } = require('./../database/queries/delete');
 
 exports.post = (req, res) => {
-  console.log('modaaal', req.body.id);
-
-
-  if (req.body.id) {
-    deleteFriend(req.body.id, (err, results) => {
-      if (err) res.send('error', err);
-      res.send(results);
+  if (req.body.senderId) {
+    cancelFriendRequest(req.body, (err, results) => {
+      if (err) return res.send('error', err);
+      return res.send({isDeleted: true,});
     });
   } else {
     selectFriend((err, results) => {
-      if (err) res.send('error', err);
-      res.send(results);
+      if (err) return res.send('error', err);
+      return res.send(results);
     });
   }
 };

@@ -14,7 +14,9 @@
 .ReactModalPortal .ReactModal__Overlay--before-close {
   opacity: 0;
 }
-
+.add-ico{
+  font-size: 25px
+}
 .modal{
   max-height: 74vh;
   overflow-y: auto;

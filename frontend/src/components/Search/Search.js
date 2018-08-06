@@ -1,6 +1,6 @@
-/* eslint-disable react/jsx-filename-extension */
-// eslint-disable-next-line
+
 import React, { Component } from 'react';
+import FontAwesomeIcon from 'react-fontawesome';
 import './style.css';
 
 class Search extends Component {
@@ -14,10 +14,16 @@ render(){
   return (
     <div>
 <form className="search-form" onSubmit={this.handleSearch}>
-<input className="search-input" name="search" type="text" placeholder="search" />
+        {/* <FontAwesomeIcon className="fas fa-search" /> */}
+        <div className="search-div">
+          <FontAwesomeIcon className="fas fa-search color--icon-search" />
+        <input className="search-input" name="search" type="text" placeholder="search" />
+          </div>
+        
 </form>
   </div>
 )
+   
 }
 
 }

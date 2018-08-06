@@ -5,6 +5,7 @@
   text-align: center;
   color: #093d5eb3;
   padding-bottom: 15px;
+  padding-top: 20vh;
 }
 .container input{
   width: 90%;
@@ -38,7 +39,7 @@ box-shadow: 3px 3px 4px grey
   border-radius: 5px;
   background-color: #c5dcefb3;;
   padding: 20px;
-  min-height: 495px;
+  height: 667px;
 }
 .color--icon{
   color: #2d2f32;

@@ -1,6 +1,6 @@
 .search-form{
   display:block;
-  width: 100%;
+  width: 90%;
   margin-bottom: 2.3rem;
 }
 form .search-input{
@@ -9,7 +9,23 @@ form .search-input{
   color: black;
   font-size: 2rem;
   padding: 1.9rem;
+  padding-left: 5px;
   border-bottom: 0.5rem solid whitesmoke;
   width: -moz-available;
-  margin: 1.5rem 0 0 0;
+  /* margin: 1.5rem 0 0 0; */
+  margin-left: 5px;
+  margin-top: 20px;
+border-radius: 3px
+}
+.color--icon-search{
+  color: #8a7f7f;
+  margin-top: 22px;
+margin-left: 9px;
+font-size: 20px;
+margin-top:40px
+}
+.search-div{
+  display: flex;
+  flex-flow: row;
+  
 }

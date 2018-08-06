@@ -1,15 +1,14 @@
-/* eslint-disable react/jsx-filename-extension */
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
 
 const Carer = (props) => {
-  const { response } = props;
+  const { response, CarerCardBodyShow } = props;
   return (
     <div className="carersCards">
 
       {response && response.map(carer => (
-        <div className="carer-card" key={carer.id} onClick={() => props.CarerCardBodyShow(carer.id)}>
+        <div className="carer-card" role="presentation" key={carer.id} onClick={() => CarerCardBodyShow(carer.id)} onKeyDown={() => CarerCardBodyShow(carer.id)}>
           <div className="carer-card-info">
             <h5>
 Carer from:
@@ -38,6 +37,11 @@ Cared for sitution:
       ))}
     </div>
   );
+};
+
+Carer.propTypes = {
+  response: PropTypes.any,
+  CarerCardBodyShow: PropTypes.func.isRequired,
 };
 
 export default Carer;

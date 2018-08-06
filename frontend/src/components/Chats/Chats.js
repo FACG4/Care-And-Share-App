@@ -3,7 +3,7 @@ import FontAwesome from 'react-fontawesome';
 
 import './styles.css';
 
-class Chats extends React.PureComponent {
+class Chats extends Component {
 
   state = {
     chat: ['hello', 'hi!', 'do you want to chat?']

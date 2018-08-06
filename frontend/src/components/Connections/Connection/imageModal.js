@@ -2,6 +2,7 @@
 import Modal from 'react-modal';
 import React, { Component } from 'react';
 import ProfileModal from './../Profile/ConnectProfile';
+import sessionCheckError from './../../../helpers/handleAuthentication'
 const customStyles = {
   content : {
     width: '290px',
@@ -38,11 +39,15 @@ class OptionModal extends Component {
   }
 
   sendDate() {
+    const token = sessionStorage.getItem('token');
+    const senderId = sessionCheckError(token).id;
     const url = '/api/MyFriends';
     const { userId } = this.props;
     fetch(url, {
       method: 'POST',
-      body: JSON.stringify({ id: userId }),
+      body: JSON.stringify({
+        receiverId: userId,
+        senderId }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -52,20 +57,16 @@ class OptionModal extends Component {
       .then((response) => {
         if (response) {
           this.setState({ action: { type: 'del', id: userId }, msg: 'delete friend' });
-          // window.location = 'MyFriends';
         }
       });
   }
   getProfileData = (id) => {
-    console.log('fetch goes here')
-    // const { id } = this.props;
     fetch(`/api/public-profile?id=${id}`, {
       credentials: 'same-origin',
       method: 'GET',
     }).then(res=>res.json())
       .then((res) => {
         if(res.err) {
-          console.log(res.err)
           this.setState({err: 'Some error happened, please try again'})
           this.openProfileModal();
         } else {
@@ -80,12 +81,9 @@ class OptionModal extends Component {
       this.setState({
         profileId: e.target.id,
       });
-      this.getProfileData(e.target.id);
-      // this.getProfileData();
-        // window.location = `profile/${e.target.id}`;
+      this.openProfileModal();
         break;
       case 'chat':
-        // window.location = `chat/${e.target.id}`;
               window.location = 'chats';
     }
   }
