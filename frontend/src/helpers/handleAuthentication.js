@@ -1,23 +1,16 @@
 // const secret = process.env.REACT_APP_SECRET;
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const sessionCheckError = (token) => {
-  // if (token) {
-  //   return jwt.verify(token, secret, (err, decoded) => {
-  //     if (err) {
-  //       return {
-  //         status: false,
-  //       };
-  //     }
-  //     return {
-  //       status: true,
-  //       id: decoded.id,
-  //     };
-  //   });
-  // }
-
+  if (token) {
+    const decodedToken =  jwt.decode(token);
+      return {
+        status: true,
+        id: decodedToken.id,
+      };
+  }
   return {
-    status: !!token,
+    status: false,
   };
 };
 
