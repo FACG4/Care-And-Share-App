@@ -25,6 +25,8 @@ class OptionModal extends Component {
       response: [],
       action: {},
       msg: '',
+      data:{},
+      err:'',
     };
     this.sendDate = this.sendDate.bind(this);
     this.redirectPage = this.redirectPage.bind(this);
@@ -41,8 +43,6 @@ class OptionModal extends Component {
     const senderId = sessionCheckError(token).id;
     const url = '/api/MyFriends';
     const { userId } = this.props;
-    console.log('userId', this.props);
-    
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -60,7 +60,21 @@ class OptionModal extends Component {
         }
       });
   }
-
+  getProfileData = (id) => {
+    fetch(`/api/public-profile?id=${id}`, {
+      credentials: 'same-origin',
+      method: 'GET',
+    }).then(res=>res.json())
+      .then((res) => {
+        if(res.err) {
+          this.setState({err: 'Some error happened, please try again'})
+          this.openProfileModal();
+        } else {
+          this.setState({data: res[0]})
+          this.openProfileModal();
+        }
+      })
+  }
   redirectPage(e) {
     switch (e.target.name) {
       case 'profile':
@@ -129,6 +143,8 @@ class OptionModal extends Component {
         openProfileModal={this.state.profileModal}
         closeProfileModal={this.closeProfileModal}
         id = {this.state.profileId}
+        data = {this.state.data}
+        err = {this.state.err}
       />
     </React.Fragment>
     );

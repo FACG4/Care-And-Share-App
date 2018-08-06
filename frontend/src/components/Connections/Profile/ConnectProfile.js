@@ -17,41 +17,11 @@ const customStyles = {
 };
 
 class ConnectProfile extends Component {
-  state ={
-    err: '',
-    data: {
-      image: '',
-      user_name: '',
-      email: '',
-      location: '',
-      sitution: '',
-      looking: '',
-      offer: '',
-      age: ''
-    }
-  }
-  getProfileData = () => {
-    const { id } = this.props;
-    fetch(`/api/public-profile?id=${id}`, {
-      credentials: 'same-origin',
-      method: 'GET',
-    }).then(res=>res.json())
-      .then((res) => {
-        if(res.err) {
-          this.setState({err: 'Some error happened, please try again'})
-        } else {
-          this.setState({data: res[0]})
-        }
-      })
-  }
-
+    
   render(){
     const {
       image, user_name, email, location, sitution, looking, offer, age
-    } = this.state.data;
-    if(this.props.openProfileModal){
-      this.getProfileData();
-    }
+    } = this.props.data;
     return (
       <Modal
         isOpen={this.props.openProfileModal}
@@ -63,7 +33,7 @@ class ConnectProfile extends Component {
             <img src={image}/>
             <h2>{user_name}</h2>
           </div>
-          {this.state.err?<p className="error">{this.state.err}</p>:''}
+          {this.props.err?<p className="error">{this.state.err}</p>:''}
           <p className="lable">Email:</p>
           <p className="field">{email}</p>
           <p className="lable">Location:</p>

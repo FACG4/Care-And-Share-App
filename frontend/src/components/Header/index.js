@@ -13,7 +13,6 @@ class Header extends Component {
   // the title should come from the selected nav
 
   render(){
-    console.log('aa')
     return(
       <header className="App-header">
         <Notifications response={this.props.response} />
