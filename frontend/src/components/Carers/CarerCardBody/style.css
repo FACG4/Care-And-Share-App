@@ -6,8 +6,9 @@
   display: flex;
   justify-content: center;
   transition: opacity 200ms easy-in-out;
-  }
+}
 .ReactModalPortal .ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.3) !important;
   opacity: 1;
 }
 .ReactModalPortal .ReactModal__Overlay--before-close {
@@ -17,9 +18,10 @@
 .modal{
   max-height: 74vh;
   overflow-y: auto;
-  background: #fafafa;
+  background: #fafafaf8;
   color: #575757;
   max-width: 35rem;
+  min-height: 550px;  
   padding: 1rem;
   outline: none;
   margin:2rem 1.2rem 3rem 1.2rem;
