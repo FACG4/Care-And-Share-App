@@ -1,14 +1,15 @@
 * {
   box-sizing: border-box;
 }
-h2{
+.h2--style{
   text-align: center;
   color: #093d5eb3;
+  padding-bottom: 15px;
 }
-input[type=text], input[type=email],input[type=password]{
+.container input{
   width: 90%;
-  padding:12px 2px 12px 5px;
-  color: white;
+  padding:20px 2px 12px 10px;
+  color:#2d2f32;
   resize: vertical;
   border: none;
   background-color:#3e9ae600;
@@ -17,41 +18,36 @@ input[type=text], input[type=email],input[type=password]{
 }
 
 .btn-signUp{
-  color:  #093d5eb3;
-  padding: 12px 20px;
-  border-radius: 15px;
-  float: right;
-  margin-top:10px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  border: none;
-  margin-top: 70px;
+  color: #2c3338;
+padding: 10px 20px;
+border-radius: 15px;
+float: right;
+margin-top: 10px;
+font-weight: bold;
+letter-spacing: 1px;
+border: none;
+margin-top: 50px;
+width: 100%;
+background-color: #48a1af;
+box-shadow: 3px 3px 4px grey
+
 }
 
-.btn-signUp:hover {
-  background-color: #093d5eb3;
-  color:  white;
-}
 
 .container {
   border-radius: 5px;
-  background-color: #0e91fcb0;
+  background-color: #c5dcefb3;;
   padding: 20px;
+  min-height: 495px;
 }
 .color--icon{
-  color: #fffdfde6;
+  color: #2d2f32;
 }
 
-.row:after {
+/* .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 
 
-@media screen and (max-width: 600px) {
-.btn-signUp{
-      width: 100%;
-
-  }
-}
