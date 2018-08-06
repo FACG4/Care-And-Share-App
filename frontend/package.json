@@ -15,11 +15,11 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "socket.io-client": "^2.1.1",
-        "react-app-env": "^1.2.2"
+    "react-app-env": "^1.2.2"
   },
   "scripts": {
     "start": "react-app-env --env-file=production.env start",
-    "build": "react-app-env build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

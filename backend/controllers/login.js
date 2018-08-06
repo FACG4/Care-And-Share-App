@@ -1,3 +1,4 @@
+require('env2')
 const { passwordCheck } = require('../database/queries/select');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -18,6 +19,7 @@ exports.post = (req, res, next)=>{
       };
 
       jwt.sign(payload, process.env.SECRET, (errToken, token) => {
+        console.log('secret ', process.env.SECRET)
         if (errToken) return next(errToken);
         return res.send({msg: 'Login Success', status: true, token});
 
