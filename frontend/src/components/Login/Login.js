@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fetch from '../../helpers/fetch';
+import FontAwesomeIcon from 'react-fontawesome';
 import './style.css';
 class Login extends Component {
 
@@ -48,15 +49,19 @@ this.setState(() =>   (
 
 render(){
   return(
-    <div className="container">
+    <div className="container-login">
     <div className="login-header">
-    <h3 className="login-header--title"> Sign In </h3>
-    <h3 className="login-header--title"> SignUp </h3>
+    {/* <h3 className="login-header--title"> Sign In </h3> */}
+    <h3 className="login-header--title"> Login </h3>
     </div>
     <form className="login-form" method="POST" onSubmit={this.handelLogin} >
     <div className="login-input">
-    <input className="login-input-field" name="userName" type="text" placeholder="Username" />
-    <input className="login-input-field" name="password" type="password" placeholder="Password" />
+    <div>
+    <FontAwesomeIcon className="fas fa-user-circle color--icon"/><input className="login-input-field" name="userName" type="text" placeholder="Username" />
+    </div>
+    <div>
+    <FontAwesomeIcon className="fas fa-key  color--icon"/><input className="login-input-field" name="password" type="password" placeholder="Password" />
+    </div>
     </div>
     <button className="big-button">Sign In</button>
     </form>

@@ -1,11 +1,26 @@
 // /* eslint-disable */
 import Modal from 'react-modal';
 import React, { Component } from 'react';
-
+import ProfileModal from './../Profile/ConnectProfile';
+const customStyles = {
+  content : {
+    width: '290px',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    background: 'rgba(255,255,255,0.9)',
+    border: 'none',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 class OptionModal extends Component {
   constructor() {
     super();
     this.state = {
+      profileModal: false,
+      profileId: '',
       response: [],
       action: {},
       msg: '',
@@ -13,7 +28,12 @@ class OptionModal extends Component {
     this.sendDate = this.sendDate.bind(this);
     this.redirectPage = this.redirectPage.bind(this);
   }
-
+  openProfileModal = () => {
+    this.setState({profileModal: true});
+  }
+  closeProfileModal = () => {
+    this.setState({profileModal: false});
+  }
 
   sendDate() {
     const url = '/api/MyFriends';
@@ -38,8 +58,12 @@ class OptionModal extends Component {
   redirectPage(e) {
     switch (e.target.name) {
       case 'profile':
-
-        window.location = `profile/${e.target.id}`;
+      this.setState({
+        profileId: e.target.id,
+      });
+      this.openProfileModal();
+      // this.getProfileData();
+        // window.location = `profile/${e.target.id}`;
         break;
       case 'chat':
         // window.location = `chat/${e.target.id}`;
@@ -53,13 +77,15 @@ class OptionModal extends Component {
     } = this.props;
 
     return (
+    <React.Fragment>
       <Modal
         isOpen={selectedOption}
         contentLabel="Slected Option"
         onRequestClose={closeModel}
-        className="modal--style"
+        style={customStyles}
+       
       >
-        <span onClick={() => closeModel(this.state.action)}>
+        <span className="modal-close" onClick={() => closeModel(this.state.action)}>
       close
         </span>
 
@@ -95,8 +121,13 @@ class OptionModal extends Component {
 
         </div>
 
-
       </Modal>
+      <ProfileModal 
+        openProfileModal={this.state.profileModal}
+        closeProfileModal={this.closeProfileModal}
+        id = {this.state.profileId}
+      />
+    </React.Fragment>
     );
   }
 }
