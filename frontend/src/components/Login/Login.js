@@ -82,6 +82,7 @@ render(){
   {this.state.error &&  <div className="login-error-msg">
     { <h3>{this.state.error}</h3>}
     </div>}
+    <button className="big-button"><a href="/signUp">Join Now</a></button>
 </div>
   )
 }
