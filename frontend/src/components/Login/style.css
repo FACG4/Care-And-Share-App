@@ -44,3 +44,8 @@ box-shadow: 3px 3px 4px grey
 .color--icon{
   color: #2d2f32;
 }
+
+.container-login a{
+  text-decoration: none;
+  color: #293538;
+}

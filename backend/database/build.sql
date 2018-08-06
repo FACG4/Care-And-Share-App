@@ -53,19 +53,16 @@ INSERT INTO users (full_name, user_name, email, password, age, sitution, locatio
 ('ahmad m5','ahmad5','ahmad5@gmail.com', '$2b$10$KRE5hD7YzFDTsNPWkgXmduQikXy9LHNJz/JRbcSL0mpDARCruino6', '39', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Washington', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa tellus, aliquet quis pulvinar ornare.');
 
 INSERT INTO discussions (message_body, sender_id, receiver_id) values
- ('{"hello", "How are u"}', 1, 2), 
+ ('{"hello", "How are u"}', 1, 2),
  ('{"hello2", "how r you"}', 1, 3);
 
-INSERT INTO connections (sender_user_id,receiver_user_id,relation_state) VALUES 
-('1','2','approved'),
-('2','3','approved'),('2','4','approved'),
-('2','5','approved'),
-('2','6','approved'),
-('2','7','approved'),
-('2','8','approved');
+INSERT INTO connections (sender_user_id,receiver_user_id,relation_state) VALUES
+('1','2','pending'),
+('2','3','pending'),
+('2','4','pending'),
+('2','5','pending'),
+('2','6','pending'),
+('2','7','pending'),
+('2','8','pending');
 
 COMMIT;
-
-
-
-
