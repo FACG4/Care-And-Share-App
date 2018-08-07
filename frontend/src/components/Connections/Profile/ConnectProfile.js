@@ -30,10 +30,10 @@ class ConnectProfile extends Component {
       >
         <div className="connection-profile">
           <div className="head">
-            <img src={image}/>
+            <img className="image-style" src={image}/>
             <h2>{user_name}</h2>
           </div>
-          {this.props.err?<p className="error">{this.state.err}</p>:''}
+          {this.props.err?<p className="error">{this.props.err}</p>:''}
           <p className="lable">Email:</p>
           <p className="field">{email}</p>
           <p className="lable">Location:</p>
