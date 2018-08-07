@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesomeIcon from 'react-fontawesome';
+import { Link } from 'react-router-dom';
 
 import './style.css';
 
@@ -82,6 +83,7 @@ render(){
   {this.state.error &&  <div className="login-error-msg">
     { <h3>{this.state.error}</h3>}
     </div>}
+    <Link to=  "/signUp"><button className="big-button">Join Now</button></Link>
 </div>
   )
 }
