@@ -15,8 +15,9 @@ let  sql = {
 
 
 const cancelFriendRequest = (data, cb) => {
+  console.log(data)
 	let sql = {
-		text: 'delete from connections where (sender_user_id = $1 AND receiver_user_id = $2) OR (sender_user_id = $2 AND receiver_user_id = $1)',
+		text: 'delete from connections where (sender_user_id = $1 AND receiver_user_id = $2) OR (sender_user_id = $2 AND receiver_user_id = $1) returning *',
 		values: [data.senderId, data.receiverId]
 	};
 

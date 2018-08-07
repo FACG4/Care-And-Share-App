@@ -14,6 +14,7 @@ state = {
     notification:true
   }
   componentDidMount(){
+    console.log('id', this.props.userId(this.props.token))
 fetch('/carers', {
   method:'POST',
   body: JSON.stringify(this.props.userId(this.props.token)),

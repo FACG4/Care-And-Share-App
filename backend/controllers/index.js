@@ -27,6 +27,7 @@ router.get('/api/profile', getProfile)
 router.put('/api/profile', postProfile)
 router.get('/api/public-profile', getUserData)
 router.post('/api/myFriends', myFriends.post)
+router.delete('/api/myFriends', myFriends.delete)
 router.post('/api/signUp', signUp.post);
 
 
