@@ -7,7 +7,7 @@ class Search extends Component {
 
 handleSearch = (e) => {
   e.preventDefault();
-  this.props.handleSearchResponse(this.props.response.filter((carer) => e.target.search.value.toLowerCase() === carer.location.toLowerCase()
+  this.props.handleSearchResponse(this.props.response.filter((carer) => e.target.search.value === carer.location
   ))
 }
 render(){
