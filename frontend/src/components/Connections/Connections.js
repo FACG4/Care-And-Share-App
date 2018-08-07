@@ -24,6 +24,10 @@ class Connection extends Component {
     const url = '/api/MyFriends';
     fetch(url, {
       method: 'POST',
+      body: JSON.stringify({id: this.props.id}),
+      headers: {
+        'content-type': 'application/json'
+      }
     }).then(res => res.json())
       .catch(error => console.error('Error:', error))
       .then((response) => {
@@ -59,7 +63,7 @@ class Connection extends Component {
     console.log(response);
     return (
       <div className="flex-container">
-        {
+        { this.state.response &&
 
   this.state.response.map((friend, id) => (
     <Image
@@ -71,7 +75,7 @@ class Connection extends Component {
     />
 
   ))}
-        <OptionModal selectedOption={selectedOption} closeModel={this.handelCloseModel} userId={this.state.modalId} alluser={this.state.userId} />
+        <OptionModal selectedOption={selectedOption} closeModel={this.handelCloseModel} userId={this.state.modalId} id={this.props.id} alluser={this.state.userId} />
 
       </div>
     );
