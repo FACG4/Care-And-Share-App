@@ -40,14 +40,15 @@ class OptionModal extends Component {
 
   sendDate() {
     const token = sessionStorage.getItem('token');
-    const senderId = sessionCheckError(token).id;
+    // const senderId = sessionCheckError(token).id;
     const url = '/api/MyFriends';
     const { userId } = this.props;
+    console.log(userId, this.props.id)
     fetch(url, {
-      method: 'POST',
+      method: 'DELETE',
       body: JSON.stringify({
         receiverId: userId,
-        senderId }),
+        id: this.props.id }),
       headers: {
         'Content-Type': 'application/json',
       },
