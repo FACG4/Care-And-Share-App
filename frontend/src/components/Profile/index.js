@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fontawesome from 'react-fontawesome';
 import Modal from 'react-modal';
-
+import sessionCheckError from './../../helpers/handleAuthentication'
 import './style.css';
 const customStyles = {
   content : {
@@ -30,8 +30,9 @@ class ProfileForm extends Component{
   }
 
   componentDidMount() {
-    console.log('userId', this.props.userId)
-    const { id } = this.props; // should get the id from the login token??
+    const id = sessionCheckError(sessionStorage.getItem('token')).id;
+    console.log('id',id);
+    
     fetch(`api/profile?id=${id}`, {
       credentials: 'same-origin',
       method: 'GET',
@@ -76,7 +77,7 @@ class ProfileForm extends Component{
   handleSubmit = (e) => {
     e.preventDefault();
     const { formData } = this.state;
-    const { id } = this.props; // should get the id from the login token??
+    const id = sessionCheckError(sessionStorage.getItem('token')).id;
     fetch(`api/profile?id=${id}`, {
       credentials: 'same-origin',
       headers: {

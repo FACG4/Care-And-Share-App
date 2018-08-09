@@ -14,7 +14,6 @@ render(){
   return (
     <div>
 <form className="search-form" onSubmit={this.handleSearch}>
-        {/* <FontAwesomeIcon className="fas fa-search" /> */}
         <div className="search-div">
           <FontAwesomeIcon className="fas fa-search color--icon-search" />
         <input className="search-input" name="search" type="text" placeholder="search" />

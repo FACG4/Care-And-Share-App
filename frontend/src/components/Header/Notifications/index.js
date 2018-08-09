@@ -25,10 +25,10 @@ class Notifications extends Component {
       }
     })
       .then(response => response.json())
-      .then(response => this.setState({
+      .then(this.setState({
         response: Object.assign([], this.state.response.filter((noti) => (noti.id !== id)
         ))
-      })
+      }, () => this.props.handleNotificationResponse(id))
       )
       .catch(error => console.log("error fetch", error))
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Image = ({
   openModel, name, id, src,
 }) => (

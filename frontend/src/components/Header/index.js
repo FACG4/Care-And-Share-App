@@ -3,7 +3,6 @@ import FontAwesomeIcon from 'react-fontawesome'
 
 import HeaderTitle from './HeaderTitle/HeaderTitle';
 import Notifications from './Notifications';
-import {Redirect} from 'react-router-dom'
 import './style.css';
 
 class Header extends Component {
@@ -13,13 +12,12 @@ class Header extends Component {
   state = {
     show: false,
   }
-  // the title should come from the selected nav
 
   render(){
     const { show } = this.state;
     return(
       <header className="App-header">
-        <Notifications response={this.props.response} />
+        <Notifications handleNotificationResponse={this.props.handleNotificationResponse} response={this.props.response} />
         <HeaderTitle title={this.props.title} />
         
         <a className="menu">
