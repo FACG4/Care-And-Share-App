@@ -115,7 +115,7 @@ class OptionModal extends Component {
             name="chat"
             onClick={this.redirectPage}
           >
-            send Message
+            Send Message
       
         </button>
           <button
@@ -125,10 +125,10 @@ class OptionModal extends Component {
             name="profile"
             onClick={this.redirectPage}
           >
-            profile
+            Profile
         </button>
           <button onClick={this.sendDate} className="btn--style" type="button">
-            delete
+            Delete
       
         </button>
           <div className="error">
