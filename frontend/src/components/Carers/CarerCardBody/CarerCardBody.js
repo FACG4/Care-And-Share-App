@@ -3,6 +3,7 @@
         import PropTypes from 'prop-types';
         import FreindsRequestButton from './FriendsRequestButton/FriendsRequestButton';
         import handleAuthentication from '../../../helpers/handleAuthentication';
+        import FontAwesome from 'react-fontawesome';
 
         import './style.css';
 
@@ -99,8 +100,8 @@
                           closeTimeoutMS={200}
                           className="modal"
                         >
-
-                        <div className="modal">
+                        <FontAwesome name="times" className="modal-close-icon" onClick={CarerCardBodyHide}/>
+                        <div className="modal-inside">
 
                           <h5>
 

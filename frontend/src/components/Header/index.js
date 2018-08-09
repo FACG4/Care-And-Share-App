@@ -23,13 +23,13 @@ class Header extends Component {
         <a className="menu">
         <div className={`notifications ${show?'': "hidden2"}`}>
           <button className="signout-menu" onClick={()=> {
-            sessionStorage.setItem("token", "");
-            window.location ='/login';
+            
             }}>Signout</button>
         </div>
-          <FontAwesomeIcon onClick={()=> this.setState({
-            show: !show,
-          })} name="bars" />
+          <FontAwesomeIcon className="signout-button" onClick={()=> {
+            sessionStorage.setItem("token", "");
+            window.location ='/login';
+          }} name="sign-out" />
         </a>
         <a onClick={this.context.router.history.goBack} className="angle-left">
           <FontAwesomeIcon name="angle-left" />

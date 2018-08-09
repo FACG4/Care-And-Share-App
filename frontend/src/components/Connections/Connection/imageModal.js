@@ -115,7 +115,7 @@ class OptionModal extends Component {
             name="chat"
             onClick={this.redirectPage}
           >
-            send Massage
+            send Message
       
         </button>
           <button

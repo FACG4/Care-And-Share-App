@@ -19,6 +19,7 @@ class Connection extends Component {
   }
 
   componentDidMount() {
+    console.log('id', this.props.id)
     const url = '/api/MyFriends';
     fetch(url, {
       method: 'POST',

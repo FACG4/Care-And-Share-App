@@ -1,5 +1,6 @@
 import Modal from 'react-modal';
 import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 
 import './style.css';
 const customStyles = {
@@ -29,13 +30,12 @@ class ConnectProfile extends Component {
         style={customStyles}
       >
         <div className="connection-profile">
+          <FontAwesome name="times" className="profile-close-icon" onClick={this.props.closeProfileModal}/>
           <div className="head">
             <img className="image-style" src={image}/>
             <h2>{full_name}</h2>
           </div>
-          {this.props.err?<p className="error">{this.props.err}</p>:''}
-          <p className="lable">Email:</p>
-          <p className="field">{email}</p>
+          {this.props.err?<p className="error">{this.props.err}</p>:''}        
           <p className="lable">Location:</p>
           <p className="field">{location}</p>
           <p className="lable">Age:</p>
