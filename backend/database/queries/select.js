@@ -2,7 +2,7 @@ const db = require('./../db_connection');
 
 const selectAllCarers = (data, cb) => {
 let  sql = {
-  text: 'SELECT id, user_role, age, sitution, location, offer, looking from users where id != $1',
+  text: 'SELECT id, user_role, age, sitution, location, offer, looking from users where id != $1 and location is not null',
   values: [data]
 };
 

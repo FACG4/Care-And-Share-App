@@ -1,5 +1,3 @@
-
-
 /* eslint-disable */
 import React, { Component } from 'react';
 import Image from './Connection/image';
@@ -46,6 +44,7 @@ class Connection extends Component {
       modalId: id,
 
     });
+    
   }
 
   handelCloseModel(action) {
@@ -56,27 +55,36 @@ class Connection extends Component {
     if (action.type === 'del') { this.setState({ response: this.state.response.filter(friend => friend.id !== action.id) }); }
   }
 
+handleResponse = (deletedConnectionId) =>{
+  this.setState({
+    response: this.state.response.filter((connection)=>{
+      return connection.id !== deletedConnectionId
+    })
 
+  });
+}
   render() {
     const {
       response, selectedOption, fullName, image, userId,
     } = this.state;
-    console.log(response);
     return (
       <div className="flex-container">
         { this.state.response &&
 
   this.state.response.map((friend, id) => (
+       
+    
     <Image
       key={id}
       name={friend.full_name}
       src={friend.image}
-      id={friend.id}
+            id={friend.user_id}
       openModel={this.handelOpenModel}
     />
+     
 
   ))}
-        <OptionModal selectedOption={selectedOption} closeModel={this.handelCloseModel} userId={this.state.modalId} id={this.props.id} alluser={this.state.userId} />
+        <OptionModal handleResponse={this.handleResponse} selectedOption={selectedOption} closeModel={this.handelCloseModel} userId={this.state.modalId} id={this.props.id} alluser={this.state.userId} />
 
       </div>
     );

@@ -43,6 +43,14 @@ import './AppRoutes.css';
               .catch (error => console.log("error fetch notification", error))
               }
 
+        handleNotificationResponse = (deletedNotiId) => {
+          this.setState(
+            {
+              response: this.state.response.filter((noti) => noti.id !== deletedNotiId)
+            }
+          )
+        }
+
         render(){
           const PrivateRoute = ({ component: Component }) => (
             <Route
@@ -57,7 +65,7 @@ import './AppRoutes.css';
 
                     <BrowserRouter>
                     <div>
-                        {(window.location.pathname !== '/login' && window.location.pathname !== '/signup') && <Header response={this.state.response} />}
+                        {(window.location.pathname !== '/login' && window.location.pathname !== '/signup') && <Header handleNotificationResponse={this.handleNotificationResponse} response={this.state.response} />}
                         <div className={(window.location.pathname !== '/login' && window.location.pathname !== '/signup')  && "main"}>
                       <Switch>
                         <Route
