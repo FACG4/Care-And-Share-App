@@ -2,9 +2,8 @@
 import Modal from 'react-modal';
 import React, { Component } from 'react';
 import ProfileModal from './../Profile/ConnectProfile';
-import sessionCheckError from './../../../helpers/handleAuthentication'
 const customStyles = {
-  content : {
+  content: {
     width: '290px',
     top: '50%',
     left: '50%',
@@ -25,30 +24,26 @@ class OptionModal extends Component {
       response: [],
       action: {},
       msg: '',
-      data:{},
-      err:'',
+      data: {},
+      err: '',
     };
     this.sendDate = this.sendDate.bind(this);
     this.redirectPage = this.redirectPage.bind(this);
   }
   openProfileModal = () => {
-    this.setState({profileModal: true});
+    this.setState({ profileModal: true, msg: '' });
   }
   closeProfileModal = () => {
-    this.setState({profileModal: false});
+    this.setState({ profileModal: false, msg: '' });
   }
 
   sendDate() {
-    const token = sessionStorage.getItem('token');
-    // const senderId = sessionCheckError(token).id;
-    const url = '/api/MyFriends';
-    const { userId } = this.props;
-    console.log(userId, this.props.id)
+    const url = '/api/friendrequestcancel';
     fetch(url, {
-      method: 'DELETE',
+      method: 'POST',
       body: JSON.stringify({
-        receiverId: userId,
-        id: this.props.id }),
+        connectionsId: this.props.userId
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -57,7 +52,7 @@ class OptionModal extends Component {
       .catch(error => console.error('Error:', error))
       .then((response) => {
         if (response) {
-          this.setState({ action: { type: 'del', id: userId }, msg: 'Friend deleted' });
+          this.setState({ action: { type: 'del' }, msg: 'Friend deleted' }, ()=> this.props.handleResponse(this.props.userId));
         }
       });
   }
@@ -65,13 +60,13 @@ class OptionModal extends Component {
     fetch(`/api/public-profile?id=${id}`, {
       credentials: 'same-origin',
       method: 'GET',
-    }).then(res=>res.json())
+    }).then(res => res.json())
       .then((res) => {
-        if(res.err) {
-          this.setState({err: 'Some error happened, please try again'})
+        if (res.err) {
+          this.setState({ err: 'Some error happened, please try again' })
           this.openProfileModal();
         } else {
-          this.setState({data: res[0]})
+          this.setState({ data: res[0], msg: '' })
           this.openProfileModal();
         }
       })
@@ -79,78 +74,81 @@ class OptionModal extends Component {
   redirectPage(e) {
     switch (e.target.name) {
       case 'profile':
-      this.setState({
-        profileId: e.target.id,
-      });
-      this.getProfileData(e.target.id);
+        this.setState({
+          profileId: e.target.id,
+        });
+        this.getProfileData(e.target.id);
         break;
       case 'chat':
-              window.location = 'chats';
+        window.location = 'chats';
     }
   }
 
-  render() {
-    const {
-      closeModel, selectedOption, userId,
-    } = this.props;
+ 
+  
 
+  render() {
+    
+    const {
+      closeModel, selectedOption, userId, user_id
+    } = this.props;
     return (
-    <React.Fragment>
-      <Modal
-        isOpen={selectedOption}
-        contentLabel="Slected Option"
-        onRequestClose={closeModel}
-        style={customStyles}
-       
-      >
-        <span className="modal-close" onClick={() =>{
-          this.setState({msg: ''})
-          closeModel(this.state.action)
+      <React.Fragment>
+        <Modal
+          isOpen={selectedOption}
+          contentLabel="Slected Option"
+          onRequestClose={closeModel}
+          style={customStyles}
+
+        >
+          <span className="modal-close" onClick={() => {
+            this.setState({ msg: '' })
+            closeModel(this.state.action)
           }}>
-      close
+            close
         </span>
 
-        <button
-          className="btn--style"
-          type="button"
-          id={userId}
-          name="chat"
-          onClick={this.redirectPage}
-        >
-      send Massage
-
+          <button
+            className="btn--style"
+            type="button"
+            id={userId}
+            name="chat"
+            onClick={this.redirectPage}
+          >
+            send Massage
+      
         </button>
-        <button
-          className="btn--style"
-          type="button"
-          id={userId}
-          name="profile"
-          onClick={this.redirectPage}
-        >
-          profile
+          <button
+            className="btn--style"
+            type="button"
+            id={userId}
+            name="profile"
+            onClick={this.redirectPage}
+          >
+            profile
         </button>
-        <button onClick={this.sendDate} className="btn--style" type="button">
-      delete
-
+          <button onClick={this.sendDate} className="btn--style" type="button">
+            delete
+      
         </button>
-        <div className="error">
-          {' '}
-          <span>
+          <div className="error">
             {' '}
-            {this.state.msg}
-          </span>
+            <span>
+              {' '}
+              {this.state.msg}
+            </span>
 
-        </div>
+          </div>
 
-      </Modal>
-      <ProfileModal 
-        openProfileModal={this.state.profileModal}
-        closeProfileModal={this.closeProfileModal}
-        id = {this.state.profileId}
-        data = {this.state.data}
-        err = {this.state.err}
-      />
-    </React.Fragment>
+        </Modal>
+        <ProfileModal
+          openProfileModal={this.state.profileModal}
+          closeProfileModal={this.closeProfileModal}
+          id={this.state.profileId}
+          data={this.state.data}
+          err={this.state.err}
+        />
+      </React.Fragment>
     );
   }
 }

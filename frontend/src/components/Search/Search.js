@@ -7,14 +7,13 @@ class Search extends Component {
 
 handleSearch = (e) => {
   e.preventDefault();
-  this.props.handleSearchResponse(this.props.response.filter((carer) => e.target.search.value.toLowerCase() === carer.location.toLowerCase()
+  this.props.handleSearchResponse(this.props.response.filter((carer) => e.target.search.value === carer.location
   ))
 }
 render(){
   return (
     <div>
 <form className="search-form" onSubmit={this.handleSearch}>
-        {/* <FontAwesomeIcon className="fas fa-search" /> */}
         <div className="search-div">
           <FontAwesomeIcon className="fas fa-search color--icon-search" />
         <input className="search-input" name="search" type="text" placeholder="search" />

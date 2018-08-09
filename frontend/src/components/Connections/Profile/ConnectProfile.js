@@ -20,7 +20,7 @@ class ConnectProfile extends Component {
     
   render(){
     const {
-      image, user_name, email, location, sitution, looking, offer, age
+      image, full_name, email, location, sitution, looking, offer, age
     } = this.props.data;
     return (
       <Modal
@@ -31,7 +31,7 @@ class ConnectProfile extends Component {
         <div className="connection-profile">
           <div className="head">
             <img className="image-style" src={image}/>
-            <h2>{user_name}</h2>
+            <h2>{full_name}</h2>
           </div>
           {this.props.err?<p className="error">{this.props.err}</p>:''}
           <p className="lable">Email:</p>
