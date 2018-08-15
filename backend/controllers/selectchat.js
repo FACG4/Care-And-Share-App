@@ -21,7 +21,7 @@ exports.post =(req,res) =>{
           }
           else{
     ;
-        return res.json({res:result.rows});
+        return res.json({res:result});
 
           }
       })
