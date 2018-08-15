@@ -17,7 +17,7 @@ const msgInsert = (message_body,sender_id ,receiver_id , cb) => {
 
 const msgSelect = (senderId,receiver_id ,cb) => {
   const sql = {
-    text: "SELECT * FROM  discussions WHERE ((sender_id=$1 and receiver_id=$2) or  (sender_id=$2 and receiver_id=$1)) and user_seen='no'   ",
+    text: "SELECT * FROM  discussions WHERE ((sender_id=$1 and receiver_id=$2) or  (sender_id=$2 and receiver_id=$1)) and user_seen='no' ORDER BY date_created",
     values: [senderId,receiver_id ],
   };
   connection.query(sql, (err, res) => {
