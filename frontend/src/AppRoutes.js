@@ -3,6 +3,7 @@ import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import Login from './components/Login/Login';
+import Home from './components/Home';
 import Carers from './components/Carers/Carers';
 import handleAuthentication from './helpers/handleAuthentication';
 import Signup from './components/singup/singup';
@@ -82,17 +83,18 @@ import './AppRoutes.css';
                           render={props => (handleAuthentication(token).status ? <Redirect to="/" />
                             : <Login {...props} handleAuthentication={handleAuthentication} />)}
                         />
-                        <Route path="/signUp" render={props => (handleAuthentication(token).status ? 
+                        <Route path="/signUp" render={props => (handleAuthentication(token).status ?
                         <Redirect to="/" />
                           : <Signup {...props} handleAuthentication={handleAuthentication} />)} />
-                        
-                            <PrivateRoute path="/chat2" component={Conversation} />    
+
+                            <PrivateRoute path="/chat2" component={Conversation} />
                             <PrivateRoute path="/profile" component={Profile} />
                             <PrivateRoute path="/diaries" component={Diaries} />
                             <PrivateRoute path="/discussion" component={Discussion} />
                             <PrivateRoute path="/connection" component={Connection} />
                             <PrivateRoute path="/mybook" component={MyBook} />
                             <PrivateRoute path="/chats" component={Chats} />
+                            <PrivateRoute path="/home" component={Home} />
                             <PrivateRoute component={Error} />
                       </Switch>
                           </div>
