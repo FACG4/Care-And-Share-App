@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+import FontAwesome from 'react-fontawesome';
 import sessionCheckError from '../../../helpers/handleAuthentication';
 import './style.css'
 
@@ -18,7 +21,7 @@ class Chat extends Component {
   componentDidMount() 
   {
     setInterval(()=>{
-  
+      
   
       const token = sessionStorage.getItem('token');
       const senderId = sessionCheckError(token).id;
@@ -46,6 +49,12 @@ class Chat extends Component {
             this.setState({
               msg: newMsg,
             })
+
+            // auto scroll
+            var chatDiv = document.querySelector('.main');
+            if (chatDiv) {
+              chatDiv.scrollTop = chatDiv.scrollHeight;
+            }
  
     })
 
@@ -91,36 +100,21 @@ class Chat extends Component {
     );
   }
 
-
   render() {
-
     
-
     return (
-      <div>
-      
-        {this.state.msg.map((m, i) => (
-       
-            <p className={(m.id === this.state.userId)? "span-senderMsg":"span-reciverMsg"} key={i}>
-              {m.body}
-            </p>
-      
-        ))}
-      
-      
-
-        <form className="messageFiled" onSubmit={this.sendMsg }>
-
-
+      <div className="chatt" ref="chatbox">      
+        {this.state.msg.map((m, i) => (       
+            <p className={(m.id === this.state.userId)? "span-senderMsg is-success":"span-reciverMsg is-info"} key={i}>
+              <span>{m.body}</span>
+            </p>      
+        ))}            
+        <form className="messageFiled" onSubmit={this.sendMsg}>
           <input type="text" name="inputChat" onChange={this.msg} />
-          <button type="submit">
-send
+          <button className="button is-info" type="submit">
+          <FontAwesome  name='send' /> Send
           </button>
-
-
         </form>
-
-
       </div>
     );
   }

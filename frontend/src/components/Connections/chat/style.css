@@ -1,4 +1,38 @@
+.chatt{
+  padding: 3rem 1.5rem;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica",
+  "Arial", sans-serif;
+  width: 100%;
+  padding-left: 10px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.chatt input{
+  color:black;
+  height: 45px;
+  font-size: 17px;
+}
+
+.span-reciverMsg{
+  padding: 0.25em;
+  text-align: left;
+  overflow-wrap: normal;
+}
+.is-info span{
+  padding: 5px;
+  background-color: #209cee;
+  color: #fff;
+}
 .span-senderMsg{
+  padding: 0.25em;
+  text-align: right;
+  overflow-wrap: normal;
   color:red;
- text-align: right;
+}
+.is-success span{
+  padding: 5px;
+  background-color: #23d160;
+  color: #fff;
 }
