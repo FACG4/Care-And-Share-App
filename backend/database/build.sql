@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS users, connections, discussions CASCADE;
 DROP TYPE IF EXISTS roles, states;
 CREATE TYPE roles AS ENUM ('user');
 CREATE TYPE states AS ENUM ('approved', 'pending', 'decline');
+CREATE TYPE seen AS ENUM ('yes', 'no');
 
 CREATE TABLE "users" (
   "id" serial NOT NULL,
@@ -29,13 +30,17 @@ CREATE TABLE "connections" (
 	CONSTRAINT connections_pk PRIMARY KEY ("sender_user_id", "receiver_user_id")
 );
 
+
 CREATE TABLE "discussions" (
 	"message_id" serial NOT NULL,
-	"message_body" varchar(1000) array,
+	"message_body" varchar(1000) ,
 	"sender_id" int NOT NULL,
 	"receiver_id" int NOT NULL,
+  "user_seen" seen DEFAULT 'no',
+  "date_created" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	CONSTRAINT discussions_pk PRIMARY KEY ("message_id")
 );
+
 
 ALTER TABLE "connections" ADD CONSTRAINT "connections_fk0" FOREIGN KEY ("sender_user_id") REFERENCES "users"("id")  ON DELETE CASCADE;
 ALTER TABLE "connections" ADD CONSTRAINT "connections_fk1" FOREIGN KEY ("receiver_user_id") REFERENCES "users"("id")  ON DELETE CASCADE;

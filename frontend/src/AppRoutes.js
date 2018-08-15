@@ -15,7 +15,8 @@ import Discussion from './components/Discussions/Discussions';
 import Connection from './components/Connections/Connections';
 import MyBook from './components/MyCarePlan/MyCarePlan';
 import Conversation from './components/Discussions/Discussion/Conversation/Conversation';
-import NavElements from './components/Navbar/NavElement'
+import NavElements from './components/Navbar/NavElement';
+import Chat from "./components/Connections/chat/chat";
 import Error from "./components/Error";
 
 import './style/style.css';
@@ -69,6 +70,7 @@ import './AppRoutes.css';
                         {(window.location.pathname !== '/login' && window.location.pathname !== '/signup') && <Header handleNotificationResponse={this.handleNotificationResponse} response={this.state.response} />}
                         <div className={(window.location.pathname !== '/login' && window.location.pathname !== '/signup')  && "main"}>
                       <Switch>
+                      <Route path="/chat"  component={Chat} />
                         <Route
                           path="/"
                           render={props => (handleAuthentication(token).status
@@ -93,7 +95,7 @@ import './AppRoutes.css';
                             <PrivateRoute path="/discussion" component={Discussion} />
                             <PrivateRoute path="/connection" component={Connection} />
                             <PrivateRoute path="/mybook" component={MyBook} />
-                            <PrivateRoute path="/chats" component={Chats} />
+                            {/* <PrivateRoute path="/chats" component={Chats} /> */}
                             <PrivateRoute path="/home" component={Home} />
                             <PrivateRoute component={Error} />
                       </Switch>

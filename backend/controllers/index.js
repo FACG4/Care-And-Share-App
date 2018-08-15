@@ -13,6 +13,8 @@ const handleAcceptFriendRequest = require('./handleAcceptFriendRequest')
 const checkFriendRelation = require('./checkFriendRelation')
 const cancelFriendRequest = require('./cancelFriendRequest')
 const handleMessages = require('./handleMessages')
+const chat = require('./chat');
+const SelectChat = require('./selectchat.js')
 
 router.post('/login', login.post)
 router.post('/carers', carers.post)
@@ -29,7 +31,10 @@ router.get('/api/public-profile', getUserData)
 router.post('/api/myFriends', myFriends.post)
 router.delete('/api/myFriends', myFriends.delete)
 router.post('/api/signUp', signUp.post);
+router.post('/api/chat', chat.post);
+router.post('/api/SelectChat', SelectChat.post);
 
 
 module.exports = router;
+
 
