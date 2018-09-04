@@ -1,0 +1,55 @@
+.connection-profile {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 320px;
+  height: 520px;
+  background-color: #F3F4F1;
+  margin: 20px auto;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.profile-close-icon {
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.connection-profile .lable {
+  margin-left: 28px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  display: block;
+}
+
+.connection-profile .head {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connection-profile .field {
+  border-bottom: 1px solid rgba(0,0,0,0.17);
+  color: rgba(0,0,0,0.65);  
+  width: 275px;
+  min-height: 40px;
+  margin: 5px auto;
+
+  background-color: rgba(255,255,255,0.1);
+}
+
+.connection-profile .error {
+  color: red;
+  text-align: center;
+}
+.connection-profile button{
+  cursor: pointer;
+  width: 90px;
+  height: 35px;
+  text-align: center;
+  border-radius: 18px;
+  background-color: #48A1AF;
+  border: none;
+  margin: 15px auto;
+  display: block;
+}

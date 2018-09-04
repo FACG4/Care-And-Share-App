@@ -1,0 +1,48 @@
+{
+  "name": "herokudeploy",
+  "version": "1.0.0",
+  "description": "![](https://i0.wp.com/evangelbc.org/ev2/wp-content/uploads/2017/11/Care-and-Share.jpg?resize=768%2C432&ssl=1)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon backend/index.js",
+    "start": "node backend/index.js",
+    "server:init": "cd backend && npm i",
+    "client:init": "cd frontend && npm i",
+    "client:dev": "cd frontend && npm start",
+    "client:build": "cd frontend && npm run build",
+    "heroku-postbuild": "npm run client:init && npm run client:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG4/Care-And-Share-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG4/Care-And-Share-App/issues"
+  },
+  "homepage": "https://github.com/FACG4/Care-And-Share-App#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "cookie-parser": "^1.4.3",
+    "env2": "^2.2.0",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.3.0",
+    "nodemon": "^1.17.5",
+    "pg": "^7.4.3",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "supertest": "^3.1.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.0"
+  }
+}
